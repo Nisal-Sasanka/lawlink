@@ -1,11 +1,11 @@
-const express = require("express");
+import express from "express";
+import db from "./config/db.js";
 
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("LawLink Backend Running");
+app.get("/users", async (req, res) => {
+  const result = await db.query("SELECT * FROM users");
+  res.json(result.rows);
 });
 
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
-});
+app.listen(3000);
