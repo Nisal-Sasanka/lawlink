@@ -48,7 +48,7 @@ const Home = () => {
         </div>
         {mobileMenu && (
           <div className="md:hidden bg-white border-t border-surface-container-high px-lg py-md space-y-sm">
-            <Link to="/login" className="block px-md py-sm rounded-lg text-body-md text-on-surface hover:bg-surface-container no-underline">login</Link>
+            <Link to="/login" className="block px-md py-sm rounded-lg text-body-md text-on-surface hover:bg-surface-container no-underline">Login</Link>
             <Link to="/register" className="block px-md py-sm rounded-lg bg-primary text-on-primary text-body-md no-underline text-center">Get Started</Link>
           </div>
         )}
