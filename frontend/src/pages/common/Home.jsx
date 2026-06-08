@@ -10,7 +10,7 @@ const features = [
 ];
 
 const lawyers = [
-  { name: 'Adv. Priya Nair', spec: 'Civil Law', rating: 4.8, cases: 48, city: 'Chennai', avatar: 'PN' },
-  { name: 'Adv. Meena Sharma', spec: 'Family Law', rating: 4.9, cases: 67, city: 'Mumbai', avatar: 'MS' },
+  { name: 'Adv.Mangaleswaran Pavithar', spec: 'Civil Law', rating: 4.8, cases: 48, city: 'Chennai', avatar: 'PN' },
+  { name: 'Adv.Kavindu chamith', spec: 'Family Law', rating: 4.9, cases: 67, city: 'Mumbai', avatar: 'MS' },
   { name: 'Adv. Rajesh Kumar', spec: 'Criminal Law', rating: 4.5, cases: 31, city: 'Bangalore', avatar: 'RK' },
 ];
