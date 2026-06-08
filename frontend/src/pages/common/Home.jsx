@@ -8,3 +8,9 @@ const features = [
   { icon: <BookOpen size={32} className="text-primary" />, title: 'Legal Knowledge Hub', desc: 'Access free articles and guides written by top legal professionals across India.' },
   { icon: <Users size={32} className="text-primary" />, title: 'Trusted by Thousands', desc: 'Join over 50,000 users who have successfully resolved their legal matters with LawLink.' },
 ];
+
+const lawyers = [
+  { name: 'Adv. Priya Nair', spec: 'Civil Law', rating: 4.8, cases: 48, city: 'Chennai', avatar: 'PN' },
+  { name: 'Adv. Meena Sharma', spec: 'Family Law', rating: 4.9, cases: 67, city: 'Mumbai', avatar: 'MS' },
+  { name: 'Adv. Rajesh Kumar', spec: 'Criminal Law', rating: 4.5, cases: 31, city: 'Bangalore', avatar: 'RK' },
+];
