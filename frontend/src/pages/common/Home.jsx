@@ -10,7 +10,13 @@ const features = [
 ];
 
 const lawyers = [
-  { name: 'Adv.Mangaleswaran Pavithar', spec: 'Civil Law', rating: 4.8, cases: 48, city: 'Chennai', avatar: 'PN' },
-  { name: 'Adv.Kavindu chamith', spec: 'Family Law', rating: 4.9, cases: 67, city: 'Mumbai', avatar: 'MS' },
-  { name: 'Adv. Rajesh Kumar', spec: 'Criminal Law', rating: 4.5, cases: 31, city: 'Bangalore', avatar: 'RK' },
+  { name: 'Adv.Mangaleswaran Pavithar', spec: 'Civil Law', rating: 4.8, cases: 48, city: 'Colombo', avatar: 'PN' },
+  { name: 'Adv.Kavindu chamith', spec: 'Family Law', rating: 4.9, cases: 67, city: 'Kandy', avatar: 'MS' },
+  { name: 'Adv. Rajesh Kumar', spec: 'Criminal Law', rating: 4.5, cases: 31, city: 'Trincomalee', avatar: 'RK' },
+];
+
+const testimonials = [
+  { name: 'Sundar R.', location: 'Colombo', text: 'LawLink helped me resolve a property dispute that had been going on for 5 years. I found the right lawyer within days!', rating: 5 },
+  { name: 'Anjali M.', location: 'Kandy', text: 'The consultation process was seamless and affordable. Highly recommend to anyone facing a family law issue.', rating: 5 },
+  { name: 'Karthik S.', location: 'Batticaloa', text: 'Professional, quick, and effective. My labour case was handled with great expertise.', rating: 4 },
 ];
