@@ -194,3 +194,28 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Testimonials */}
+      <section id="testimonials" className="py-3xl px-lg bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-2xl">
+            <h2 className="text-headline-lg text-on-surface">What Our Users Say</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-lg">
+            {testimonials.map((t, i) => (
+              <div key={i} className="bg-surface-container-low rounded-2xl p-xl border border-surface-container-high">
+                <div className="flex gap-xs mb-md">
+                  {Array.from({ length: t.rating }).map((_, j) => (
+                    <Star key={j} size={16} className="text-yellow-500" fill="currentColor" />
+                  ))}
+                </div>
+                <p className="text-body-md text-on-surface leading-relaxed mb-lg italic">"{t.text}"</p>
+                <div>
+                  <p className="text-label-md text-on-surface font-semibold">{t.name}</p>
+                  <p className="text-body-sm text-on-surface-variant">{t.location}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
