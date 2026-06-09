@@ -85,3 +85,20 @@ const Home = () => {
             </div>
           </div>
         </div>
+        {/* Decorative stats */}
+        <div className="max-w-7xl mx-auto mt-3xl">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-lg">
+            {[
+              { value: '50,000+', label: 'Happy Users' },
+              { value: '1,500+', label: 'Verified Lawyers' },
+              { value: '98%', label: 'Success Rate' },
+              { value: '30+', label: 'Legal Categories' },
+            ].map((s, i) => (
+              <div key={i} className="text-center bg-white/10 border border-white/20 rounded-2xl p-lg backdrop-blur-sm">
+                <p className="text-headline-lg font-bold text-on-primary">{s.value}</p>
+                <p className="text-body-sm text-on-primary/70 mt-xs">{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
