@@ -219,3 +219,15 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* CTA */}
+      <section className="py-3xl px-lg bg-gradient-to-r from-primary to-primary-container">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-headline-lg text-on-primary mb-md">Ready to Get Legal Help?</h2>
+          <p className="text-body-lg text-on-primary/80 mb-2xl">Join thousands of Srilankan's who've found justice through LawLink. Start for free today.</p>
+          <button onClick={() => navigate('/register')}
+            className="px-2xl py-md rounded-xl bg-white text-primary text-body-lg font-bold hover:bg-on-primary-container transition-colors">
+            Create Free Account
+          </button>
+        </div>
+      </section>
