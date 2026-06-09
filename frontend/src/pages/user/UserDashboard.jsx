@@ -79,5 +79,30 @@ const UserDashboard = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Right Sidebar */}
+        <div className="space-y-lg">
+          {/* Quick Actions */}
+          <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card">
+            <h3 className="text-headline-sm text-on-surface mb-md">Quick Actions</h3>
+            <div className="space-y-sm">
+              {[
+                { label: 'Submit New Complaint', icon: <PlusCircle size={18} />, to: '/user/complaints/new', primary: true },
+                { label: 'Find a Lawyer', icon: <User size={18} />, to: '/user/lawyers/search', primary: false },
+                { label: 'My Complaints', icon: <FileText size={18} />, to: '/user/complaints', primary: false },
+                { label: 'Notifications', icon: <Bell size={18} />, to: '/user/notifications', primary: false },
+              ].map((a, i) => (
+                <Link key={i} to={a.to} className="no-underline">
+                  <div className={`flex items-center gap-md px-md py-sm rounded-xl transition-colors cursor-pointer
+                    ${a.primary ? 'bg-primary text-on-primary hover:opacity-90' : 'bg-surface-container-low text-on-surface hover:bg-surface-container'}`}>
+                    {a.icon}
+                    <span className="text-body-md">{a.label}</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
 
 
