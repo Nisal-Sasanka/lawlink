@@ -118,5 +118,11 @@ const UserDashboard = () => {
                 </div>
               </div>
             </div>
+            <Link to="/user/consultation" className="no-underline">
+              <button className="w-full py-sm rounded-xl border border-primary text-primary text-body-md hover:bg-primary/5 transition-colors">
+                Send Message
+              </button>
+            </Link>
+          </div>
 
 
