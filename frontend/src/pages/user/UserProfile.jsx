@@ -37,4 +37,14 @@ const UserProfile = () => {
           onChange={e => setDraft({ ...draft, [field]: e.target.value })}
           className="w-full border border-outline-variant rounded-lg px-md py-sm text-body-md focus:outline-none focus:border-primary"
         />
+      ) : (
+        <p className="text-body-md text-on-surface font-medium">{value}</p>
+      )}
+    </div>
+  );
+
+  return (
+    <div className="w-full max-w-4xl mx-auto">
+      <div className="mb-xl">
+        <h1 className="text-headline-lg text-on-surface">My Profile</h1>
 
