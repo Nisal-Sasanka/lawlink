@@ -66,5 +66,18 @@ const UserDashboard = () => {
                         {statusConfig[c.status]?.icon} {c.status}
                       </span>
                     </div>
+<p className="text-body-md font-semibold text-on-surface">{c.title}</p>
+                    <div className="flex items-center gap-md mt-xs text-body-sm text-on-surface-variant flex-wrap">
+                      <span>{c.category}</span>
+                      <span>•</span>
+                      <span>{c.date}</span>
+                      <span>•</span>
+                      <span className={c.lawyer === 'Unassigned' ? 'text-yellow-600 font-medium' : ''}>{c.lawyer}</span>
+                    </div>
+                  </div>
+                  <ArrowRight size={16} className="text-on-surface-variant shrink-0 mt-xs" />
+                </div>
+              </div>
+            ))}
 
 
