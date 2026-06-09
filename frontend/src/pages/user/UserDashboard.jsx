@@ -124,5 +124,20 @@ const UserDashboard = () => {
               </button>
             </Link>
           </div>
+          {/* Next Hearing */}
+          <div className="bg-gradient-to-br from-primary to-primary-container rounded-xl p-xl text-on-primary shadow-card">
+            <p className="text-label-md opacity-80 mb-xs">📅 Next Court Hearing</p>
+            <p className="text-headline-sm font-bold">June 25, 2024</p>
+            <p className="text-body-sm opacity-80 mt-xs">10:30 AM — District Court, Chennai</p>
+            <p className="text-body-sm opacity-70 mt-xs">Case: CMP-001</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default UserDashboard;
+
 
 
