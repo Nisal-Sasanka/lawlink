@@ -104,5 +104,19 @@ const UserDashboard = () => {
               ))}
             </div>
           </div>
+          {/* Your Lawyer */}
+          <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card">
+            <h3 className="text-headline-sm text-on-surface mb-md">Your Lawyer</h3>
+            <div className="flex items-center gap-md mb-lg">
+              <div className="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center font-bold text-on-primary-container">PN</div>
+              <div>
+                <p className="text-body-md font-semibold text-on-surface">Adv. Priya Nair</p>
+                <p className="text-body-sm text-on-surface-variant">Civil Law • ⭐ 4.8</p>
+                <div className="flex items-center gap-xs mt-xs">
+                  <div className="w-2 h-2 rounded-full bg-green-500" />
+                  <span className="text-body-sm text-green-600">Online</span>
+                </div>
+              </div>
+            </div>
 
 
