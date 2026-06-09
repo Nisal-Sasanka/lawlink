@@ -55,5 +55,16 @@ const UserDashboard = () => {
               View all <ArrowRight size={14} />
             </Link>
           </div>
+          <div className="divide-y divide-surface-container-high">
+            {recentComplaints.map(c => (
+              <div key={c.id} className="p-lg hover:bg-surface-container-low transition-colors cursor-pointer" onClick={() => navigate(`/user/complaints/${c.id}`)}>
+                <div className="flex items-start justify-between gap-md">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-sm mb-xs flex-wrap">
+                      <span className="text-label-sm font-bold text-primary bg-primary/10 px-sm py-xs rounded">{c.id}</span>
+                      <span className={`text-label-sm px-sm py-xs rounded-full flex items-center gap-xs ${statusConfig[c.status]?.color}`}>
+                        {statusConfig[c.status]?.icon} {c.status}
+                      </span>
+                    </div>
 
 
