@@ -105,3 +105,40 @@ const Login = () => {
             </div>
 
             <form onSubmit={handleLogin} className="space-y-md">
+              {/* Email */}
+              <div>
+                <label className="text-label-sm text-on-surface-variant mb-xs block">Email Address</label>
+                <div className="relative">
+                  <Mail size={16} className="absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant" />
+                  <input
+                    type="email"
+                    placeholder="you@email.com"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    required
+                    className="w-full pl-10 pr-md border border-outline-variant rounded-xl py-sm text-body-md focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all"
+                  />
+                </div>
+              </div>
+
+              {/* Password */}
+              <div>
+                <div className="flex justify-between items-center mb-xs">
+                  <label className="text-label-sm text-on-surface-variant">Password</label>
+                  <Link to="/forgot-password" className="text-body-sm text-primary hover:underline no-underline">Forgot password?</Link>
+                </div>
+                <div className="relative">
+                  <Lock size={16} className="absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant" />
+                  <input
+                    type={showPass ? 'text' : 'password'}
+                    placeholder="••••••••"
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                    required
+                    className="w-full pl-10 pr-12 border border-outline-variant rounded-xl py-sm text-body-md focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all"
+                  />
+                  <button type="button" onClick={() => setShowPass(!showPass)} className="absolute right-md top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface transition-colors">
+                    {showPass ? <EyeOff size={16} /> : <Eye size={16} />}
+                  </button>
+                </div>
+              </div>
