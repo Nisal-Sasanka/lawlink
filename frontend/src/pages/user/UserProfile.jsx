@@ -129,4 +129,12 @@ const UserProfile = () => {
               </div>
             </div>
           </div>
+          {/* Contact Info */}
+          <div className="bg-white border border-surface-container-high rounded-2xl p-xl shadow-card">
+            <h3 className="text-headline-sm text-on-surface flex items-center gap-sm mb-xl">
+              <Mail size={20} className="text-primary" /> Contact Information
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-lg">
+              <div className="flex items-center gap-md bg-surface-container-low rounded-xl p-md">
+                <Mail size={18} className="text-primary" />
 
