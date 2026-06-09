@@ -15,5 +15,20 @@ const statusConfig = {
 
 const UserDashboard = () => {
   const navigate = useNavigate();
+  return (
+    <div className="w-full">
+      {/* Welcome Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-md mb-xl">
+        <div>
+          <h1 className="text-headline-lg text-on-surface">Welcome back, John! 👋</h1>
+          <p className="text-body-md text-on-surface-variant mt-xs">Here's an overview of your active cases and recent activity.</p>
+        </div>
+        <button
+          onClick={() => navigate('/user/complaints/new')}
+          className="flex items-center gap-sm px-lg py-sm rounded-xl bg-primary text-on-primary text-body-md font-semibold hover:opacity-90 transition-opacity"
+        >
+          <PlusCircle size={18} /> New Complaint
+        </button>
+      </div>
 
 
