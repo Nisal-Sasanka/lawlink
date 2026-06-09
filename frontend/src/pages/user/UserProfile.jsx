@@ -112,4 +112,21 @@ const UserProfile = () => {
                 </div>
               )}
             </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-lg">
+              <InfoField label="Full Name" value={profile.name} field="name" />
+              <InfoField label="Date of Birth" value={profile.dob} field="dob" type="date" />
+              <InfoField label="Gender" value={profile.gender} field="gender" />
+              <InfoField label="City" value={profile.city} field="city" />
+              <InfoField label="State" value={profile.state} field="state" />
+              <div className="sm:col-span-2">
+                <label className="text-label-sm text-on-surface-variant block mb-xs">Address</label>
+                {editing ? (
+                  <textarea rows={2} value={draft.address} onChange={e => setDraft({ ...draft, address: e.target.value })}
+                    className="w-full border border-outline-variant rounded-lg px-md py-sm text-body-md focus:outline-none focus:border-primary resize-none" />
+                ) : (
+                  <p className="text-body-md text-on-surface font-medium">{profile.address}</p>
+                )}
+              </div>
+            </div>
+          </div>
 
