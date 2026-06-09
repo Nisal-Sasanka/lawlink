@@ -30,5 +30,11 @@ const UserDashboard = () => {
           <PlusCircle size={18} /> New Complaint
         </button>
       </div>
+      {/* Stats Cards */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-md mb-xl">
+        {[
+          { label: 'Active Cases', value: 2, icon: <Scale size={24} className="text-primary" />, bg: 'bg-primary/5', change: '+1 this month' },
+          { label: 'In Review', value: 1, icon: <Clock size={24} className="text-yellow-600" />, bg: 'bg-yellow-50', change: 'Lawyer reviewing' },
+          { label: 'Resolved', value: 1, icon: <CheckCircle size={24} className="text-green-600" />, bg: 'bg-green-50', change: 'All time' },
 
 
