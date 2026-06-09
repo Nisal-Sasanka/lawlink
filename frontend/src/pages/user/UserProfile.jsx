@@ -27,4 +27,14 @@ const UserProfile = () => {
     { label: 'Active Cases', value: 2, icon: <Clock size={20} className="text-yellow-600" /> },
     { label: 'Resolved', value: 1, icon: <Shield size={20} className="text-green-600" /> },
   ];
+  const InfoField = ({ label, value, field, type = 'text' }) => (
+    <div>
+      <label className="text-label-sm text-on-surface-variant block mb-xs">{label}</label>
+      {editing ? (
+        <input
+          type={type}
+          value={draft[field]}
+          onChange={e => setDraft({ ...draft, [field]: e.target.value })}
+          className="w-full border border-outline-variant rounded-lg px-md py-sm text-body-md focus:outline-none focus:border-primary"
+        />
 
