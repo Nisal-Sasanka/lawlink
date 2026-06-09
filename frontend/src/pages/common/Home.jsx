@@ -53,3 +53,35 @@ const Home = () => {
           </div>
         )}
       </nav>
+
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary-container to-[#1a2f7a] text-on-primary py-3xl px-lg">
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_#90a8ff_0%,_transparent_60%)]" />
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-sm bg-white/10 border border-white/20 rounded-full px-md py-xs mb-xl text-body-sm">
+              ⚖️ Trusted Legal Platform Across India
+            </div>
+            <h1 className="text-display text-on-primary leading-tight mb-lg">
+              Get Expert Legal Help,<br />
+              <span className="text-on-primary-container">Right When You Need It</span>
+            </h1>
+            <p className="text-body-lg text-on-primary/80 mb-2xl max-w-xl leading-relaxed">
+              Connect with verified lawyers, file complaints, and resolve your legal matters — all in one secure, easy-to-use platform built for every Indian citizen.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-md">
+              <button
+                onClick={() => navigate('/register')}
+                className="flex items-center justify-center gap-sm px-2xl py-md rounded-xl bg-white text-primary text-body-lg font-semibold hover:bg-on-primary-container transition-colors"
+              >
+                Get Started Free <ArrowRight size={20} />
+              </button>
+              <button
+                onClick={() => navigate('/login')}
+                className="flex items-center justify-center gap-sm px-2xl py-md rounded-xl border-2 border-white/40 text-on-primary text-body-lg hover:bg-white/10 transition-colors"
+              >
+                Login
+              </button>
+            </div>
+          </div>
+        </div>
