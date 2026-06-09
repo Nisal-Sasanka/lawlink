@@ -102,3 +102,24 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Features */}
+      <section id="features" className="py-3xl px-lg bg-surface-container-low">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-2xl">
+            <h2 className="text-headline-lg text-on-surface">Why Choose LawLink?</h2>
+            <p className="text-body-lg text-on-surface-variant mt-md max-w-2xl mx-auto">We combine technology and legal expertise to make justice accessible for everyone in India.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-lg">
+            {features.map((f, i) => (
+              <div key={i} className="bg-white rounded-2xl p-xl shadow-card hover:shadow-lg transition-shadow border border-surface-container-high group">
+                <div className="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center mb-lg group-hover:bg-primary/10 transition-colors">
+                  {f.icon}
+                </div>
+                <h3 className="text-headline-sm text-on-surface mb-sm">{f.title}</h3>
+                <p className="text-body-md text-on-surface-variant leading-relaxed">{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
