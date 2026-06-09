@@ -151,3 +151,46 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Featured Lawyers */}
+      <section id="lawyers" className="py-3xl px-lg bg-surface-container-low">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-2xl">
+            <h2 className="text-headline-lg text-on-surface">Featured Lawyers</h2>
+            <p className="text-body-lg text-on-surface-variant mt-md">Top-rated legal professionals ready to help you</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-lg">
+            {lawyers.map((l, i) => (
+              <div key={i} className="bg-white rounded-2xl p-xl shadow-card hover:shadow-lg transition-shadow border border-surface-container-high">
+                <div className="flex items-center gap-lg mb-lg">
+                  <div className="w-16 h-16 rounded-full bg-primary-container flex items-center justify-center text-headline-sm font-bold text-on-primary-container">
+                    {l.avatar}
+                  </div>
+                  <div>
+                    <h3 className="text-headline-sm text-on-surface">{l.name}</h3>
+                    <p className="text-body-sm text-on-surface-variant">{l.spec}</p>
+                    <div className="flex items-center gap-xs mt-xs">
+                      <MapPin size={12} className="text-on-surface-variant" />
+                      <span className="text-body-sm text-on-surface-variant">{l.city}</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between pt-lg border-t border-surface-container-high">
+                  <div className="flex items-center gap-xs text-yellow-500">
+                    <Star size={16} fill="currentColor" />
+                    <span className="text-body-md font-bold text-on-surface">{l.rating}</span>
+                    <span className="text-body-sm text-on-surface-variant">/ 5.0</span>
+                  </div>
+                  <span className="text-body-sm text-on-surface-variant">{l.cases} cases</span>
+                  <button className="text-body-sm text-primary hover:underline font-medium">View Profile</button>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-xl">
+            <button onClick={() => navigate('/register')} className="px-2xl py-md rounded-xl bg-primary text-on-primary text-body-lg font-semibold hover:opacity-90 transition-opacity">
+              Find Your Lawyer
+            </button>
+          </div>
+        </div>
+      </section>
