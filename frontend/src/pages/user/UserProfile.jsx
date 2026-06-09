@@ -57,4 +57,13 @@ const UserProfile = () => {
             <div className="w-24 h-24 rounded-full bg-primary flex items-center justify-center text-headline-lg font-bold text-on-primary mx-auto mb-lg">
               JD
             </div>
+<h2 className="text-headline-sm text-on-surface">{profile.name}</h2>
+            <p className="text-body-sm text-on-surface-variant mt-xs">Registered User</p>
+            <div className="flex items-center justify-center gap-xs mt-sm text-body-sm text-on-surface-variant">
+              <MapPin size={14} /> {profile.city}, {profile.state}
+            </div>
+            <div className="mt-lg pt-lg border-t border-surface-container-high">
+              <p className="text-body-sm text-on-surface-variant italic">"{profile.bio}"</p>
+            </div>
+          </div>
 
