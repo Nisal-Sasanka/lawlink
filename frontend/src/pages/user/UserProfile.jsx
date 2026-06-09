@@ -151,4 +151,34 @@ const UserProfile = () => {
               </div>
             </div>
           </div>
+          {/* Security */}
+          <div className="bg-white border border-surface-container-high rounded-2xl p-xl shadow-card">
+            <h3 className="text-headline-sm text-on-surface flex items-center gap-sm mb-xl">
+              <Shield size={20} className="text-primary" /> Security
+            </h3>
+            <div className="space-y-md">
+              <div>
+                <label className="text-label-sm text-on-surface-variant mb-xs block">Current Password</label>
+                <input type="password" placeholder="••••••••" className="w-full border border-outline-variant rounded-lg px-md py-sm text-body-md focus:outline-none focus:border-primary" />
+              </div>
+              <div>
+                <label className="text-label-sm text-on-surface-variant mb-xs block">New Password</label>
+                <input type="password" placeholder="••••••••" className="w-full border border-outline-variant rounded-lg px-md py-sm text-body-md focus:outline-none focus:border-primary" />
+              </div>
+              <div>
+                <label className="text-label-sm text-on-surface-variant mb-xs block">Confirm New Password</label>
+                <input type="password" placeholder="••••••••" className="w-full border border-outline-variant rounded-lg px-md py-sm text-body-md focus:outline-none focus:border-primary" />
+              </div>
+              <button className="px-xl py-sm rounded-lg bg-primary text-on-primary text-body-md font-semibold hover:opacity-90 transition-opacity">
+                Update Password
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default UserProfile;
 
