@@ -69,3 +69,39 @@ const Login = () => {
           </div>
         </div>
       </div>
+
+      {/* Right Login Panel */}
+      <div className="flex-1 flex items-center justify-center p-lg">
+        <div className="w-full max-w-[460px]">
+          {/* Mobile Logo */}
+          <div className="lg:hidden flex items-center gap-sm mb-xl">
+            <Scale size={24} className="text-primary" />
+            <span className="text-headline-sm font-bold text-primary">LawLink</span>
+          </div>
+
+          <div className="bg-white border border-surface-container-high rounded-2xl p-xl shadow-card">
+            <div className="mb-xl">
+              <h2 className="text-headline-lg text-on-surface">Welcome back</h2>
+              <p className="text-body-md text-on-surface-variant mt-xs">Sign in to your LawLink account.</p>
+            </div>
+
+            {/* Role Selector */}
+            <div className="mb-xl">
+              <p className="text-label-sm text-on-surface-variant mb-sm">Login as</p>
+              <div className="grid grid-cols-3 gap-sm">
+                {roles.map(r => (
+                  <button
+                    key={r.value}
+                    type="button"
+                    onClick={() => setRole(r.value)}
+                    className={`flex flex-col items-center gap-xs py-md px-sm rounded-xl border-2 transition-all
+                      ${role === r.value ? 'border-primary bg-primary/5' : 'border-surface-container-high hover:border-primary/30 hover:bg-surface-container-low'}`}
+                  >
+                    <span className={role === r.value ? 'text-primary' : 'text-on-surface-variant'}>{r.icon}</span>
+                    <span className={`text-label-sm font-semibold ${role === r.value ? 'text-primary' : 'text-on-surface-variant'}`}>{r.label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <form onSubmit={handleLogin} className="space-y-md">
