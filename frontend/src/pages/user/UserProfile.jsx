@@ -137,4 +137,18 @@ const UserProfile = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-lg">
               <div className="flex items-center gap-md bg-surface-container-low rounded-xl p-md">
                 <Mail size={18} className="text-primary" />
+<div>
+                  <p className="text-label-sm text-on-surface-variant">Email Address</p>
+                  <p className="text-body-md font-medium text-on-surface">{profile.email}</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-md bg-surface-container-low rounded-xl p-md">
+                <Phone size={18} className="text-primary" />
+                <div>
+                  <p className="text-label-sm text-on-surface-variant">Phone Number</p>
+                  <p className="text-body-md font-medium text-on-surface">{profile.phone}</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
