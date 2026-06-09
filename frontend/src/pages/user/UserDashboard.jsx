@@ -36,5 +36,15 @@ const UserDashboard = () => {
           { label: 'Active Cases', value: 2, icon: <Scale size={24} className="text-primary" />, bg: 'bg-primary/5', change: '+1 this month' },
           { label: 'In Review', value: 1, icon: <Clock size={24} className="text-yellow-600" />, bg: 'bg-yellow-50', change: 'Lawyer reviewing' },
           { label: 'Resolved', value: 1, icon: <CheckCircle size={24} className="text-green-600" />, bg: 'bg-green-50', change: 'All time' },
+          { label: 'Unread Notifications', value: 3, icon: <Bell size={24} className="text-blue-600" />, bg: 'bg-blue-50', change: 'View all' },
+        ].map((s, i) => (
+          <div key={i} className="bg-white border border-surface-container-high rounded-xl p-lg shadow-card hover:shadow-md transition-shadow">
+            <div className={`w-10 h-10 rounded-xl ${s.bg} flex items-center justify-center mb-md`}>{s.icon}</div>
+            <p className="text-label-md text-on-surface-variant">{s.label}</p>
+            <p className="text-display text-on-surface mt-xs">{s.value}</p>
+            <p className="text-body-sm text-on-surface-variant mt-xs">{s.change}</p>
+          </div>
+        ))}
+      </div>
 
 
