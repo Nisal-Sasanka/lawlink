@@ -123,3 +123,31 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* How It Works */}
+      <section className="py-3xl px-lg bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-2xl">
+            <h2 className="text-headline-lg text-on-surface">How LawLink Works</h2>
+            <p className="text-body-lg text-on-surface-variant mt-md">Get legal help in 4 simple steps</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-lg">
+            {[
+              { step: '01', title: 'Register', desc: 'Create your free account in minutes.', icon: '📝' },
+              { step: '02', title: 'File a Complaint', desc: 'Describe your legal issue clearly.', icon: '⚖️' },
+              { step: '03', title: 'Choose a Package', desc: 'Select the plan that suits your needs.', icon: '📦' },
+              { step: '04', title: 'Get Legal Help', desc: 'A verified lawyer is assigned to your case.', icon: '✅' },
+            ].map((s, i) => (
+              <div key={i} className="relative text-center">
+                {i < 3 && <div className="hidden md:block absolute top-8 left-[60%] w-[40%] h-0.5 bg-surface-container-high" />}
+                <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-2xl mx-auto mb-lg relative z-10">
+                  {s.icon}
+                </div>
+                <div className="text-label-sm text-primary mb-xs">STEP {s.step}</div>
+                <h3 className="text-headline-sm text-on-surface mb-sm">{s.title}</h3>
+                <p className="text-body-md text-on-surface-variant">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
