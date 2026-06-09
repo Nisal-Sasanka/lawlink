@@ -231,3 +231,40 @@ const Home = () => {
           </button>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-on-surface text-inverse-on-surface py-2xl px-lg">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-xl mb-2xl">
+            <div>
+              <div className="flex items-center gap-sm mb-md">
+                <Scale size={24} className="text-inverse-primary" />
+                <span className="text-headline-sm font-bold text-inverse-on-surface">LawLink</span>
+              </div>
+              <p className="text-body-sm text-inverse-on-surface/60 leading-relaxed">India's most trusted platform for accessible legal services.</p>
+            </div>
+            {[
+              { title: 'Platform', links: ['For Users', 'For Lawyers', 'Admin Panel', 'Pricing'] },
+              { title: 'Legal', links: ['Privacy Policy', 'Terms of Service', 'Disclaimer', 'Cookie Policy'] },
+              { title: 'Contact', links: ['help@lawlink.in', '+91-80-4567-8901', 'Bengaluru, India'] },
+            ].map((col, i) => (
+              <div key={i}>
+                <h4 className="text-label-md text-inverse-on-surface mb-md">{col.title}</h4>
+                <ul className="space-y-sm">
+                  {col.links.map((l, j) => (
+                    <li key={j} className="text-body-sm text-inverse-on-surface/60 hover:text-inverse-on-surface cursor-pointer transition-colors">{l}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <div className="border-t border-white/10 pt-lg text-center text-body-sm text-inverse-on-surface/40">
+            © 2026 LawLink. All rights reserved. Making justice accessible for every Srilankans.
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default Home;
