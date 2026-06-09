@@ -81,4 +81,12 @@ const UserProfile = () => {
               ))}
             </div>
           </div>
+          {/* Danger Zone */}
+          <div className="bg-white border border-red-200 rounded-2xl p-lg shadow-card">
+            <h3 className="text-headline-sm text-red-600 mb-md">Account</h3>
+            <button className="w-full text-center text-body-sm text-red-500 hover:text-red-700 hover:underline transition-colors">
+              Delete Account
+            </button>
+          </div>
+        </div>
 
