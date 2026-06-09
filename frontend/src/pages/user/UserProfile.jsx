@@ -47,4 +47,14 @@ const UserProfile = () => {
     <div className="w-full max-w-4xl mx-auto">
       <div className="mb-xl">
         <h1 className="text-headline-lg text-on-surface">My Profile</h1>
+        <p className="text-body-md text-on-surface-variant mt-xs">Manage your personal information and account settings.</p>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-xl">
+        {/* Left: Avatar + Stats */}
+        <div className="space-y-lg">
+          <div className="bg-white border border-surface-container-high rounded-2xl p-xl shadow-card text-center">
+            <div className="w-24 h-24 rounded-full bg-primary flex items-center justify-center text-headline-lg font-bold text-on-primary mx-auto mb-lg">
+              JD
+            </div>
 
