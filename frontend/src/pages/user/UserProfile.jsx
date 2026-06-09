@@ -102,4 +102,14 @@ const UserProfile = () => {
                   <Edit2 size={14} /> Edit
                 </button>
               ) : (
+                <div className="flex gap-sm">
+                  <button onClick={() => setEditing(false)} className="flex items-center gap-xs px-md py-xs rounded-lg border border-outline-variant text-body-sm hover:bg-surface-container transition-colors">
+                    <X size={14} /> Cancel
+                  </button>
+                  <button onClick={handleSave} className="flex items-center gap-xs px-md py-xs rounded-lg bg-primary text-on-primary text-body-sm hover:opacity-90 transition-opacity">
+                    <Save size={14} /> Save
+                  </button>
+                </div>
+              )}
+            </div>
 
