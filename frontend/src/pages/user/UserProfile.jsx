@@ -66,4 +66,19 @@ const UserProfile = () => {
               <p className="text-body-sm text-on-surface-variant italic">"{profile.bio}"</p>
             </div>
           </div>
+          {/* Stats */}
+          <div className="bg-white border border-surface-container-high rounded-2xl p-lg shadow-card">
+            <h3 className="text-headline-sm text-on-surface mb-md">Case Summary</h3>
+            <div className="space-y-md">
+              {stats.map((s, i) => (
+                <div key={i} className="flex items-center justify-between">
+                  <div className="flex items-center gap-sm">
+                    {s.icon}
+                    <span className="text-body-md text-on-surface">{s.label}</span>
+                  </div>
+                  <span className="text-headline-sm font-bold text-on-surface">{s.value}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
