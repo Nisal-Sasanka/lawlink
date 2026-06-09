@@ -91,4 +91,15 @@ const UserProfile = () => {
         </div>
         {/* Right: Info */}
         <div className="lg:col-span-2 space-y-lg">
+          {/* Personal Info */}
+          <div className="bg-white border border-surface-container-high rounded-2xl p-xl shadow-card">
+            <div className="flex items-center justify-between mb-xl">
+              <h3 className="text-headline-sm text-on-surface flex items-center gap-sm">
+                <User size={20} className="text-primary" /> Personal Information
+              </h3>
+              {!editing ? (
+                <button onClick={() => setEditing(true)} className="flex items-center gap-xs px-md py-xs rounded-lg border border-outline-variant text-body-sm hover:bg-surface-container transition-colors">
+                  <Edit2 size={14} /> Edit
+                </button>
+              ) : (
 
