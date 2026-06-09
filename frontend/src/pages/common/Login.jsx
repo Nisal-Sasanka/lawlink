@@ -142,3 +142,52 @@ const Login = () => {
                   </button>
                 </div>
               </div>
+
+               {/* Remember me */}
+              <label className="flex items-center gap-sm cursor-pointer">
+                <input type="checkbox" className="accent-primary" />
+                <span className="text-body-sm text-on-surface-variant">Remember me for 30 days</span>
+              </label>
+
+              {/* Submit */}
+              <button
+                type="submit"
+                disabled={loading}
+                className={`w-full py-md rounded-xl text-body-lg font-semibold transition-all flex items-center justify-center gap-sm
+                  ${loading ? 'bg-surface-container-high text-on-surface-variant' : 'bg-primary text-on-primary hover:opacity-90'}`}
+              >
+                {loading ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-on-surface-variant border-t-transparent rounded-full animate-spin" />
+                    Signing in...
+                  </>
+                ) : 'Sign In'}
+              </button>
+            </form>
+
+            {/* Divider */}
+            <div className="flex items-center gap-md my-lg">
+              <div className="flex-1 h-px bg-surface-container-high" />
+              <span className="text-body-sm text-on-surface-variant">New to LawLink?</span>
+              <div className="flex-1 h-px bg-surface-container-high" />
+            </div>
+
+            <Link to="/register" className="no-underline">
+              <button className="w-full py-sm rounded-xl border border-outline-variant text-body-md font-semibold text-on-surface hover:bg-surface-container-low hover:border-primary/30 transition-all">
+                Create a Free Account
+              </button>
+            </Link>
+          </div>
+
+          <p className="text-body-sm text-center text-on-surface-variant mt-lg">
+            By logging in, you agree to our{' '}
+            <span className="text-primary cursor-pointer hover:underline">Terms</span> &{' '}
+            <span className="text-primary cursor-pointer hover:underline">Privacy Policy</span>.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Login;
