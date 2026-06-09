@@ -46,5 +46,14 @@ const UserDashboard = () => {
           </div>
         ))}
       </div>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-xl">
+        {/* Recent Complaints */}
+        <div className="lg:col-span-2 bg-white border border-surface-container-high rounded-xl shadow-card">
+          <div className="flex items-center justify-between p-xl border-b border-surface-container-high">
+            <h2 className="text-headline-sm text-on-surface">Recent Complaints</h2>
+            <Link to="/user/complaints" className="text-body-sm text-primary hover:underline no-underline flex items-center gap-xs">
+              View all <ArrowRight size={14} />
+            </Link>
+          </div>
 
 
