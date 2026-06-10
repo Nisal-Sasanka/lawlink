@@ -132,3 +132,24 @@ const Register = () => {
                   </div>
                 </div>
               )}
+
+              Password */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-md">
+                <div>
+                  <label className="text-label-sm text-on-surface-variant mb-xs block">Password *</label>
+                  <div className="relative">
+                    <input type={showPass ? 'text' : 'password'} placeholder="Min. 8 characters"
+                      value={form.password} onChange={e => update('password', e.target.value)} required minLength={8}
+                      className="w-full border border-outline-variant rounded-xl px-md py-sm pr-10 text-body-md focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all" />
+                    <button type="button" onClick={() => setShowPass(!showPass)} className="absolute right-md top-1/2 -translate-y-1/2 text-on-surface-variant">
+                      {showPass ? <EyeOff size={16} /> : <Eye size={16} />}
+                    </button>
+                  </div>
+                </div>
+                <div>
+                  <label className="text-label-sm text-on-surface-variant mb-xs block">Confirm Password *</label>
+                  <input type="password" placeholder="Repeat password"
+                    value={form.confirmPassword} onChange={e => update('confirmPassword', e.target.value)} required
+                    className="w-full border border-outline-variant rounded-xl px-md py-sm text-body-md focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all" />
+                </div>
+              </div>
