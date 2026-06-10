@@ -14,3 +14,19 @@ const statusConfig = {
   'Resolved': { color: 'bg-green-100 text-green-700', icon: <CheckCircle size={12} /> },
   'Closed': { color: 'bg-gray-100 text-gray-600', icon: <XCircle size={12} /> },
 };
+const priorityColor = {
+  High: 'text-red-600 bg-red-50',
+  Medium: 'text-yellow-600 bg-yellow-50',
+  Low: 'text-green-600 bg-green-50',
+};
+
+const MyComplaints = () => {
+  const navigate = useNavigate();
+  const [search, setSearch] = useState('');
+  const [statusFilter, setStatusFilter] = useState('All');
+
+  const filtered = complaints.filter(c =>
+    (statusFilter === 'All' || c.status === statusFilter) &&
+    (c.title.toLowerCase().includes(search.toLowerCase()) ||
+      c.id.toLowerCase().includes(search.toLowerCase()))
+  );
