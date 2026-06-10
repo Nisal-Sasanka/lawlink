@@ -141,3 +141,9 @@ const MyComplaints = () => {
                     </div>
                   </div>
                 </div>
+                {/* Actions */}
+                <div className="flex gap-sm shrink-0">
+                  {c.status === 'In Review' && (
+                    <Link to="/user/consultation" className="no-underline">
+                      <button className="flex items-center gap-xs px-md py-sm rounded-lg bg-surface-container text-on-surface text-body-sm hover:bg-surface-container-high transition-colors">
+                        💬 Chat
