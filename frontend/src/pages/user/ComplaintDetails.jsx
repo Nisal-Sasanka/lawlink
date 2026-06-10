@@ -10,3 +10,21 @@ const complaintsData = {
     location: 'Chennai, Tamil Nadu', opposingParty: 'Mr. Suresh Rajan',
     package: 'Standard Representation',
     description: 'My neighbor, Mr. Suresh Rajan, has encroached upon approximately 2 feet of my registered property land and constructed a boundary wall inside my premises. The encroachment is clearly visible and documented in the official survey and my sale deed. This has been going on for 3 months and he refuses to remove the construction despite multiple requests.',
+    assignedLawyer: { name: 'Adv. Priya Nair', spec: 'Civil Law', rating: 4.8, avatar: 'PN' },
+    documents: [
+      { name: 'aadhaar_card.pdf', type: 'ID Proof', date: 'Jun 02, 2024', size: '342 KB' },
+      { name: 'sale_deed.pdf', type: 'Property Document', date: 'Jun 07, 2024', size: '1.2 MB' },
+      { name: 'property_photos.jpg', type: 'Evidence', date: 'Jun 02, 2024', size: '2.8 MB' },
+    ],
+    timeline: [
+      { event: 'Complaint Filed', date: 'Jun 01, 2024', time: '09:32 AM', done: true },
+      { event: 'Payment Received (₹1,999)', date: 'Jun 01, 2024', time: '09:45 AM', done: true },
+      { event: 'Lawyer Assigned — Adv. Priya Nair', date: 'Jun 03, 2024', time: '11:00 AM', done: true },
+      { event: 'Documents Reviewed by Lawyer', date: 'Jun 07, 2024', time: '03:30 PM', done: true },
+      { event: 'Injunction Filing Prepared', date: 'Jun 10, 2024', time: '—', done: false },
+      { event: 'Court Hearing', date: 'Jun 25, 2024', time: '10:30 AM', done: false },
+      { event: 'Resolution', date: 'TBD', time: '—', done: false },
+    ],
+    hearing: { date: 'Jun 25, 2024', time: '10:30 AM', court: 'District Court, Chennai', judge: 'Hon. Justice M. Raghavan' },
+  },
+};
