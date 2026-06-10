@@ -177,3 +177,14 @@ const ComplaintDetails = () => {
             <div className="space-y-sm">
               {complaint.timeline.map((item, i) => (
                 <div key={i} className="flex gap-md">
+                  <div className="flex flex-col items-center">
+                    <div className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0
+                      ${item.done ? 'bg-primary' : 'bg-surface-container-high'}`}>
+                      {item.done
+                        ? <CheckCircle size={14} className="text-on-primary" />
+                        : <Clock size={14} className="text-on-surface-variant" />}
+                    </div>
+                    {i < complaint.timeline.length - 1 && (
+                      <div className={`w-0.5 flex-1 mt-xs ${item.done ? 'bg-primary' : 'bg-surface-container-high'}`} style={{ minHeight: '20px' }} />
+                    )}
+                  </div>
