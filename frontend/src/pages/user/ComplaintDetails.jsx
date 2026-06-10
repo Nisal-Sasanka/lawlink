@@ -126,3 +126,8 @@ const ComplaintDetails = () => {
             </div>
           </div>
         </div>
+        {/* Sidebar */}
+        <div className="space-y-lg">
+          {/* Assigned Lawyer */}
+          <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card">
+            <h3 className="text-headline-sm text-on-surface mb-md flex items-center gap-sm">
