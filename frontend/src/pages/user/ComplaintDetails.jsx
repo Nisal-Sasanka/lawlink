@@ -43,3 +43,17 @@ const ComplaintDetails = () => {
   return (
     <div className="w-full">
       {/* Header */}
+      <div className="flex items-center gap-md mb-xl">
+        <button onClick={() => navigate(-1)} className="p-sm rounded-lg hover:bg-surface-container transition-colors">
+          <ArrowLeft size={20} className="text-on-surface-variant" />
+        </button>
+        <div className="flex-1">
+          <div className="flex items-center gap-sm mb-xs flex-wrap">
+            <span className="text-label-sm font-bold text-primary bg-primary/10 px-sm py-xs rounded">{complaint.id}</span>
+            <span className={`text-label-sm px-sm py-xs rounded-full font-semibold ${statusConfig[complaint.status]?.color}`}>{complaint.status}</span>
+            <span className="text-label-sm bg-red-50 text-red-600 px-sm py-xs rounded-full">{complaint.priority} Priority</span>
+            <span className="text-label-sm bg-surface-container text-on-surface-variant px-sm py-xs rounded">{complaint.category}</span>
+          </div>
+          <h1 className="text-headline-md text-on-surface">{complaint.title}</h1>
+        </div>
+      </div>
