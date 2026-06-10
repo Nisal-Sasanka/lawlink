@@ -57,3 +57,27 @@ const ComplaintDetails = () => {
           <h1 className="text-headline-md text-on-surface">{complaint.title}</h1>
         </div>
       </div>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-xl">
+        {/* Main Content */}
+        <div className="lg:col-span-2 space-y-lg">
+          {/* Case Info */}
+          <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card">
+            <h2 className="text-headline-sm text-on-surface mb-lg flex items-center gap-sm">
+              <FileText size={18} className="text-primary" /> Case Information
+            </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-lg mb-lg">
+              {[
+                { label: 'Filed On', value: complaint.date },
+                { label: 'Incident Date', value: complaint.incidentDate },
+                { label: 'Location', value: complaint.location },
+                { label: 'Opposing Party', value: complaint.opposingParty },
+                { label: 'Package', value: complaint.package },
+                { label: 'Case ID', value: complaint.id },
+              ].map((item, i) => (
+                <div key={i}>
+                  <p className="text-label-sm text-on-surface-variant">{item.label}</p>
+                  <p className="text-body-md text-on-surface font-medium mt-xs">{item.value}</p>
+                </div>
+              ))}
+            </div>
+            <div>
