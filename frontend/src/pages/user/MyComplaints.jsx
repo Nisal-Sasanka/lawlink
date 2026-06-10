@@ -105,3 +105,20 @@ const MyComplaints = () => {
         <div className="bg-white border border-surface-container-high rounded-xl p-3xl text-center shadow-card">
           <AlertTriangle size={48} className="mx-auto text-on-surface-variant mb-lg opacity-30" />
           <p className="text-headline-sm text-on-surface-variant">No complaints found</p>
+          <p className="text-body-md text-on-surface-variant mt-xs">Try adjusting your search or filters.</p>
+        </div>
+      ) : (
+        <div className="space-y-md">
+          {filtered.map(c => (
+            <div key={c.id} className="bg-white border border-surface-container-high rounded-xl p-lg shadow-card hover:shadow-md transition-shadow">
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-md">
+                <div className="flex-1">
+                  {/* Badges */}
+                  <div className="flex items-center gap-sm mb-sm flex-wrap">
+                    <span className="text-label-sm font-bold text-primary bg-primary/10 px-sm py-xs rounded">{c.id}</span>
+                    <span className={`text-label-sm px-sm py-xs rounded-full font-semibold flex items-center gap-xs ${statusConfig[c.status]?.color}`}>
+                      {statusConfig[c.status]?.icon} {c.status}
+                    </span>
+                    <span className={`text-label-sm px-sm py-xs rounded-full font-semibold ${priorityColor[c.priority]}`}>{c.priority}</span>
+                    <span className="text-label-sm bg-surface-container text-on-surface-variant px-sm py-xs rounded">{c.category}</span>
+                  </div>
