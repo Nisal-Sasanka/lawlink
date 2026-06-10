@@ -122,3 +122,22 @@ const MyComplaints = () => {
                     <span className={`text-label-sm px-sm py-xs rounded-full font-semibold ${priorityColor[c.priority]}`}>{c.priority}</span>
                     <span className="text-label-sm bg-surface-container text-on-surface-variant px-sm py-xs rounded">{c.category}</span>
                   </div>
+                  {/* Title */}
+                  <h3 className="text-headline-sm text-on-surface mb-sm">{c.title}</h3>
+
+                  {/* Meta */}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-sm">
+                    <div>
+                      <p className="text-label-sm text-on-surface-variant">Filed</p>
+                      <p className="text-body-sm text-on-surface font-medium">{c.date}</p>
+                    </div>
+                    <div>
+                      <p className="text-label-sm text-on-surface-variant">Lawyer</p>
+                      <p className={`text-body-sm font-medium ${c.lawyer === 'Unassigned' ? 'text-yellow-600' : 'text-on-surface'}`}>{c.lawyer}</p>
+                    </div>
+                    <div>
+                      <p className="text-label-sm text-on-surface-variant">Next Hearing</p>
+                      <p className="text-body-sm text-on-surface font-medium">{c.hearing}</p>
+                    </div>
+                  </div>
+                </div>
