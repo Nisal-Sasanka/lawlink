@@ -157,3 +157,23 @@ const ComplaintDetails = () => {
               </div>
             )}
           </div>
+          {/* Next Hearing */}
+          {complaint.hearing && (
+            <div className="bg-gradient-to-br from-primary to-primary-container rounded-xl p-xl text-on-primary shadow-card">
+              <Calendar size={24} className="mb-md" />
+              <p className="text-label-md opacity-80 mb-xs">📅 Next Court Hearing</p>
+              <p className="text-headline-sm font-bold">{complaint.hearing.date}</p>
+              <p className="text-body-sm opacity-80 mt-xs">{complaint.hearing.time}</p>
+              <p className="text-body-sm opacity-70 mt-xs">{complaint.hearing.court}</p>
+              {complaint.hearing.judge && (
+                <p className="text-body-sm opacity-70 mt-xs">{complaint.hearing.judge}</p>
+              )}
+            </div>
+          )}
+
+          {/* Timeline */}
+          <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card">
+            <h3 className="text-headline-sm text-on-surface mb-lg">Case Timeline</h3>
+            <div className="space-y-sm">
+              {complaint.timeline.map((item, i) => (
+                <div key={i} className="flex gap-md">
