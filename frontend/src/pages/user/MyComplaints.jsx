@@ -19,6 +19,24 @@ const priorityColor = {
   Medium: 'text-yellow-600 bg-yellow-50',
   Low: 'text-green-600 bg-green-50',
 };
+          <PlusCircle size={18} /> New Complaint
+        </button>
+      </div>
+
+      {/* Stats */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-md mb-xl">
+        {[
+          { label: 'Total Cases', value: complaints.length, color: 'text-primary' },
+          { label: 'Open', value: complaints.filter(c => c.status === 'Open').length, color: 'text-blue-600' },
+          { label: 'In Review', value: complaints.filter(c => c.status === 'In Review').length, color: 'text-yellow-600' },
+          { label: 'Resolved', value: complaints.filter(c => c.status === 'Resolved').length, color: 'text-green-600' },
+        ].map((s, i) => (
+          <div key={i} className="bg-white border border-surface-container-high rounded-xl p-lg shadow-card text-center">
+            <p className={`text-display font-bold ${s.color}`}>{s.value}</p>
+            <p className="text-label-md text-on-surface-variant mt-xs">{s.label}</p>
+          </div>
+        ))}
+      </div>
 
 const MyComplaints = () => {
   const navigate = useNavigate();
