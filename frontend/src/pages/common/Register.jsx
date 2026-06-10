@@ -153,3 +153,34 @@ const Register = () => {
                     className="w-full border border-outline-variant rounded-xl px-md py-sm text-body-md focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all" />
                 </div>
               </div>
+
+
+               {/* Agreement */}
+              <label className="flex items-start gap-sm cursor-pointer">
+                <input type="checkbox" checked={agreed} onChange={e => setAgreed(e.target.checked)} className="mt-xs accent-primary" required />
+                <span className="text-body-sm text-on-surface-variant">
+                  I agree to LawLink's{' '}
+                  <span className="text-primary underline cursor-pointer">Terms of Service</span> and{' '}
+                  <span className="text-primary underline cursor-pointer">Privacy Policy</span>.
+                </span>
+              </label>
+
+              <button type="submit" disabled={!agreed}
+                className={`w-full py-md rounded-xl text-body-lg font-semibold transition-all
+                  ${agreed ? 'bg-primary text-on-primary hover:opacity-90' : 'bg-surface-container-high text-on-surface-variant cursor-not-allowed'}`}>
+                Create Account
+              </button>
+            </form>
+
+            <p className="text-body-sm text-center text-on-surface-variant mt-lg">
+              Already have an account?{' '}
+              <Link to="/login" className="text-primary font-semibold hover:underline no-underline">Login</Link>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Register;
