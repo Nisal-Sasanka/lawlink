@@ -28,3 +28,18 @@ const complaintsData = {
     hearing: { date: 'Jun 25, 2024', time: '10:30 AM', court: 'District Court, Chennai', judge: 'Hon. Justice M. Raghavan' },
   },
 };
+const statusConfig = {
+  'Open': { color: 'bg-blue-100 text-blue-700', label: 'Open' },
+  'In Review': { color: 'bg-yellow-100 text-yellow-700', label: 'In Review' },
+  'Resolved': { color: 'bg-green-100 text-green-700', label: 'Resolved' },
+  'Closed': { color: 'bg-gray-100 text-gray-600', label: 'Closed' },
+};
+
+const ComplaintDetails = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const complaint = complaintsData[id] || complaintsData['CMP-001'];
+
+  return (
+    <div className="w-full">
+      {/* Header */}
