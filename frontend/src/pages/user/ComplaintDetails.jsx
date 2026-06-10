@@ -188,3 +188,18 @@ const ComplaintDetails = () => {
                       <div className={`w-0.5 flex-1 mt-xs ${item.done ? 'bg-primary' : 'bg-surface-container-high'}`} style={{ minHeight: '20px' }} />
                     )}
                   </div>
+                  <div className="pb-sm">
+                    <p className={`text-body-sm font-medium ${item.done ? 'text-on-surface' : 'text-on-surface-variant'}`}>{item.event}</p>
+                    <p className="text-body-sm text-on-surface-variant">{item.date}{item.time !== '—' ? ` • ${item.time}` : ''}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ComplaintDetails;
