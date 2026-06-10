@@ -85,3 +85,55 @@ const Navbar = ({ role, onLogout }) => {
             </div>
           )}
         </div>
+
+         {/* User Menu */}
+        <div className="relative">
+          <button
+            onClick={() => { setShowMenu(!showMenu); setShowNotif(false); }}
+            className="flex items-center gap-sm p-xs rounded-xl hover:bg-surface-container transition-all"
+          >
+            <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-label-sm font-bold text-on-primary">
+              {userAvatars[role] || 'U'}
+            </div>
+            <div className="hidden sm:block text-left">
+              <p className="text-label-sm font-semibold text-on-surface">{userNames[role] || role}</p>
+              <p className="text-body-sm text-on-surface-variant capitalize">{role}</p>
+            </div>
+            <ChevronDown size={14} className={`text-on-surface-variant transition-transform ${showMenu ? 'rotate-180' : ''}`} />
+          </button>
+
+          {/* User Dropdown */}
+          {showMenu && (
+            <div className="absolute right-0 top-full mt-sm w-52 bg-white border border-surface-container-high rounded-2xl shadow-xl z-50 overflow-hidden">
+              <div className="px-lg py-md border-b border-surface-container-high">
+                <p className="text-label-md font-semibold text-on-surface">{userNames[role]}</p>
+                <p className="text-body-sm text-on-surface-variant capitalize">{role}</p>
+              </div>
+              <div className="py-xs">
+                <button
+                  onClick={() => { setShowMenu(false); navigate(role === 'lawyer' ? '/lawyer/profile' : role === 'user' ? '/user/profile' : '/admin'); }}
+                  className="w-full flex items-center gap-md px-lg py-sm text-body-md text-on-surface hover:bg-surface-container-low transition-colors"
+                >
+                  <Settings size={16} className="text-on-surface-variant" /> Settings
+                </button>
+                <button
+                  onClick={handleLogout}
+                  className="w-full flex items-center gap-md px-lg py-sm text-body-md text-red-600 hover:bg-red-50 transition-colors"
+                >
+                  <LogOut size={16} /> Logout
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Overlay to close dropdowns */}
+      {(showMenu || showNotif) && (
+        <div className="fixed inset-0 z-30" onClick={() => { setShowMenu(false); setShowNotif(false); }} />
+      )}
+    </nav>
+  );
+};
+
+export default Navbar;
