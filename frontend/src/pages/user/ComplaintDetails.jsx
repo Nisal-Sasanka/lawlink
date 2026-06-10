@@ -131,3 +131,29 @@ const ComplaintDetails = () => {
           {/* Assigned Lawyer */}
           <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card">
             <h3 className="text-headline-sm text-on-surface mb-md flex items-center gap-sm">
+              <User size={18} className="text-primary" /> Assigned Lawyer
+            </h3>
+            {complaint.assignedLawyer ? (
+              <>
+                <div className="flex items-center gap-md mb-lg">
+                  <div className="w-14 h-14 rounded-full bg-primary-container flex items-center justify-center text-label-sm font-bold text-on-primary-container">
+                    {complaint.assignedLawyer.avatar}
+                  </div>
+                  <div>
+                    <p className="text-body-md font-semibold text-on-surface">{complaint.assignedLawyer.name}</p>
+                    <p className="text-body-sm text-on-surface-variant">{complaint.assignedLawyer.spec}</p>
+                    <p className="text-body-sm text-yellow-600">⭐ {complaint.assignedLawyer.rating} / 5.0</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-xs">
+                  <div className="w-2 h-2 rounded-full bg-green-500" />
+                  <span className="text-body-sm text-green-600">Currently online</span>
+                </div>
+              </>
+            ) : (
+              <div className="text-center py-lg">
+                <p className="text-body-md text-yellow-600 font-medium">⏳ Pending Assignment</p>
+                <p className="text-body-sm text-on-surface-variant mt-xs">A lawyer will be assigned within 24 hours.</p>
+              </div>
+            )}
+          </div>
