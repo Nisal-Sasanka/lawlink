@@ -111,3 +111,18 @@ const ComplaintDetails = () => {
               ))}
             </div>
           </div>
+          {/* Actions */}
+          <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card">
+            <h2 className="text-headline-sm text-on-surface mb-lg">Quick Actions</h2>
+            <div className="flex gap-md flex-wrap">
+              <Link to="/user/consultation" className="no-underline">
+                <button className="flex items-center gap-sm px-lg py-sm rounded-xl bg-primary text-on-primary text-body-md hover:opacity-90 transition-opacity">
+                  <MessageSquare size={18} /> Message Lawyer
+                </button>
+              </Link>
+              <button className="flex items-center gap-sm px-lg py-sm rounded-xl border border-outline-variant text-body-md hover:bg-surface-container transition-colors">
+                <Paperclip size={18} /> Upload More Documents
+              </button>
+            </div>
+          </div>
+        </div>
