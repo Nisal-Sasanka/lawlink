@@ -30,3 +30,14 @@ const MyComplaints = () => {
     (c.title.toLowerCase().includes(search.toLowerCase()) ||
       c.id.toLowerCase().includes(search.toLowerCase()))
   );
+  return (
+    <div className="w-full">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-md mb-xl">
+        <div>
+          <h1 className="text-headline-lg text-on-surface">My Complaints</h1>
+          <p className="text-body-md text-on-surface-variant mt-xs">Track all your legal cases and their current status.</p>
+        </div>
+        <button
+          onClick={() => navigate('/user/complaints/new')}
+          className="flex items-center gap-sm px-lg py-sm rounded-xl bg-primary text-on-primary text-body-md font-semibold hover:opacity-90 transition-opacity"
