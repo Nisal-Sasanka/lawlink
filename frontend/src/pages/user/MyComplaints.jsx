@@ -147,3 +147,22 @@ const MyComplaints = () => {
                     <Link to="/user/consultation" className="no-underline">
                       <button className="flex items-center gap-xs px-md py-sm rounded-lg bg-surface-container text-on-surface text-body-sm hover:bg-surface-container-high transition-colors">
                         💬 Chat
+</button>
+                    </Link>
+                  )}
+                  <Link to={`/user/complaints/${c.id}`} className="no-underline">
+                    <button className="flex items-center gap-xs px-md py-sm rounded-lg bg-primary text-on-primary text-body-sm hover:opacity-90 transition-opacity">
+                      <Eye size={14} /> View Details
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default MyComplaints;
