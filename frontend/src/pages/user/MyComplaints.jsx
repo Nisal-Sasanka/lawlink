@@ -77,3 +77,31 @@ const MyComplaints = () => {
           </div>
         ))}
       </div>
+      {/* Search & Filter */}
+      <div className="bg-white border border-surface-container-high rounded-xl p-lg shadow-card mb-lg">
+        <div className="flex flex-col sm:flex-row gap-md items-start sm:items-center justify-between">
+          <div className="relative flex-1">
+            <Search size={16} className="absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant" />
+            <input
+              type="text" placeholder="Search by title or case ID..."
+              value={search} onChange={e => setSearch(e.target.value)}
+              className="w-full pl-10 pr-md py-sm border border-outline-variant rounded-lg text-body-md focus:outline-none focus:border-primary"
+            />
+          </div>
+          <div className="flex items-center gap-sm flex-wrap">
+            <Filter size={16} className="text-on-surface-variant" />
+            {['All', 'Open', 'In Review', 'Resolved', 'Closed'].map(f => (
+              <button key={f} onClick={() => setStatusFilter(f)}
+                className={`px-md py-xs rounded-lg text-label-sm transition-colors ${statusFilter === f ? 'bg-primary text-on-primary' : 'bg-surface-container text-on-surface-variant hover:bg-surface-container-high'}`}>
+                {f}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Cases List */}
+      {filtered.length === 0 ? (
+        <div className="bg-white border border-surface-container-high rounded-xl p-3xl text-center shadow-card">
+          <AlertTriangle size={48} className="mx-auto text-on-surface-variant mb-lg opacity-30" />
+          <p className="text-headline-sm text-on-surface-variant">No complaints found</p>
