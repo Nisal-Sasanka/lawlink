@@ -87,3 +87,27 @@ const ComplaintDetails = () => {
               </div>
             </div>
           </div>
+          {/* Documents */}
+          <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card">
+            <h2 className="text-headline-sm text-on-surface mb-lg flex items-center gap-sm">
+              <Paperclip size={18} className="text-primary" /> Uploaded Documents
+            </h2>
+            <div className="space-y-sm">
+              {complaint.documents.map((doc, i) => (
+                <div key={i} className="flex items-center justify-between bg-surface-container-low rounded-xl p-md">
+                  <div className="flex items-center gap-md">
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                      <FileText size={18} className="text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-body-md font-semibold text-on-surface">{doc.name}</p>
+                      <p className="text-body-sm text-on-surface-variant">{doc.type} • {doc.size} • Uploaded {doc.date}</p>
+                    </div>
+                  </div>
+                  <button className="flex items-center gap-xs px-md py-sm rounded-lg border border-outline-variant text-body-sm hover:bg-surface-container transition-colors">
+                    <Download size={14} /> Download
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
