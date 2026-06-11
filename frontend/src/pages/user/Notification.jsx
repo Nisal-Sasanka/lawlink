@@ -82,3 +82,11 @@ return (
           </button>
         )}
       </div>
+      {/* Filter */}
+      <div className="flex gap-sm mb-xl">
+        {['All', 'Unread', 'Read'].map(f => (
+          <button key={f} onClick={() => setFilter(f)}
+            className={`px-lg py-sm rounded-lg text-label-sm font-semibold transition-colors
+              ${filter === f ? 'bg-primary text-on-primary' : 'bg-white border border-surface-container-high text-on-surface-variant hover:bg-surface-container-low'}`}>
+            {f} {f === 'Unread' && unread > 0 && `(${unread})`}
+          </button>
