@@ -114,3 +114,26 @@ return (
                   >
                     <div className={`w-10 h-10 rounded-full ${typeColors[n.type]} flex items-center justify-center shrink-0`}>
                       {n.icon}
+</div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-start justify-between gap-md">
+                        <h4 className={`text-body-md ${!n.read ? 'font-semibold text-on-surface' : 'font-medium text-on-surface-variant'}`}>{n.title}</h4>
+                        <div className="flex items-center gap-sm shrink-0">
+                          {!n.read && <div className="w-2 h-2 rounded-full bg-primary" />}
+                          <span className="text-body-sm text-on-surface-variant">{n.time}</span>
+                        </div>
+                      </div>
+                      <p className="text-body-sm text-on-surface-variant mt-xs leading-relaxed">{n.message}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Notification;
