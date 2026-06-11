@@ -45,3 +45,21 @@ const typeColors = {
   case: 'bg-blue-50',
   message: 'bg-green-50',
   payment: 'bg-purple-50',
+};
+
+const Notification = () => {
+  const [items, setItems] = useState(notifications);
+  const [filter, setFilter] = useState('All');
+
+  const unread = items.filter(n => !n.read).length;
+
+  const markAllRead = () => setItems(prev => prev.map(n => ({ ...n, read: true })));
+  const markRead = (id) => setItems(prev => prev.map(n => n.id === id ? { ...n, read: true } : n));
+
+  const filtered = filter === 'All' ? items : filter === 'Unread' ? items.filter(n => !n.read) : items.filter(n => n.read);
+
+  const grouped = filtered.reduce((acc, n) => {
+    if (!acc[n.date]) acc[n.date] = [];
+    acc[n.date].push(n);
+    return acc;
+  }, {});
