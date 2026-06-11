@@ -9,3 +9,15 @@ const notifications = [
     time: '2 hours ago', read: false, date: 'Today'
   },
   {
+    id: 2, type: 'case', icon: <Briefcase size={18} className="text-blue-600" />,
+    title: 'Case Status Updated',
+    message: 'Your case CMP-001 is now "In Review". Your lawyer has started reviewing your documents.',
+    time: '5 hours ago', read: false, date: 'Today'
+  },
+  {
+    id: 3, type: 'message', icon: <MessageSquare size={18} className="text-green-600" />,
+    title: 'New Message from Lawyer',
+    message: 'Adv. Priya Nair sent you a message: "Please share the original sale deed for the property. It will strengthen your case."',
+    time: '1 day ago', read: true, date: 'Yesterday'
+  },
+  {
