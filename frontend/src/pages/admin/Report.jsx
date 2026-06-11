@@ -91,3 +91,118 @@ const Report = () => {
             ))}
           </div>
         </div>
+
+        {/* Revenue Chart */}
+        <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card">
+          <h2 className="text-headline-sm text-on-surface mb-xl flex items-center gap-sm">
+            <BarChart3 size={18} className="text-primary" /> Revenue (₹) — 2024
+          </h2>
+          <div className="flex items-end gap-md h-40">
+            {months.map((m, i) => (
+              <div key={m} className="flex-1 flex flex-col items-center gap-sm">
+                <span className="text-label-sm text-on-surface-variant">{(revenue[i] / 1000).toFixed(0)}K</span>
+                <div
+                  className="w-full bg-gradient-to-t from-primary to-on-primary-container rounded-t-lg hover:opacity-80 cursor-pointer"
+                  style={{ height: `${(revenue[i] / 312000) * 130}px` }}
+                  title={`${m}: ₹${revenue[i].toLocaleString()}`}
+                />
+                <span className="text-label-sm text-on-surface-variant">{m}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-xl mb-xl">
+        {/* Case Categories */}
+        <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card">
+          <h2 className="text-headline-sm text-on-surface mb-xl flex items-center gap-sm">
+            <FileText size={18} className="text-primary" /> Cases by Category
+          </h2>
+          <div className="space-y-md">
+            {categoryBreakdown.map((c, i) => (
+              <div key={i}>
+                <div className="flex justify-between mb-xs">
+                  <span className="text-body-sm text-on-surface font-medium">{c.label}</span>
+                  <span className="text-body-sm text-on-surface-variant">{c.count} cases ({c.pct}%)</span>
+                </div>
+                <SimpleBar value={c.pct} max={35} color="bg-primary" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Case Status Distribution */}
+        <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card">
+          <h2 className="text-headline-sm text-on-surface mb-xl flex items-center gap-sm">
+            <CheckCircle size={18} className="text-primary" /> Case Status Overview
+          </h2>
+          <div className="space-y-lg">
+            {[
+              { label: 'Resolved', count: 312, pct: 75, color: 'bg-green-500' },
+              { label: 'In Review', count: 56, pct: 13, color: 'bg-yellow-500' },
+              { label: 'Open', count: 42, pct: 10, color: 'bg-blue-500' },
+              { label: 'Closed', count: 8, pct: 2, color: 'bg-gray-400' },
+            ].map((s, i) => (
+              <div key={i}>
+                <div className="flex justify-between mb-xs">
+                  <span className="text-body-sm text-on-surface font-medium">{s.label}</span>
+                  <span className="text-body-sm text-on-surface-variant">{s.count} ({s.pct}%)</span>
+                </div>
+                <SimpleBar value={s.pct} max={80} color={s.color} />
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-xl pt-lg border-t border-surface-container-high grid grid-cols-2 gap-md">
+            <div className="bg-surface-container-low rounded-xl p-md text-center">
+              <p className="text-display font-bold text-primary">8 days</p>
+              <p className="text-label-sm text-on-surface-variant mt-xs">Avg. Resolution Time</p>
+            </div>
+            <div className="bg-surface-container-low rounded-xl p-md text-center">
+              <p className="text-display font-bold text-green-600">75%</p>
+              <p className="text-label-sm text-on-surface-variant mt-xs">Resolution Rate</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Top Lawyers */}
+      <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card">
+        <h2 className="text-headline-sm text-on-surface mb-lg flex items-center gap-sm">
+          <Scale size={18} className="text-primary" /> Top Performing Lawyers
+        </h2>
+        <div className="overflow-x-auto">
+          <table className="w-full text-left">
+            <thead className="bg-surface-container-low">
+              <tr>
+                {['Rank', 'Lawyer', 'Specialization', 'Cases', 'Rating', 'Revenue'].map(h => (
+                  <th key={h} className="px-lg py-md text-label-md text-on-surface-variant">{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {topLawyers.map((l, i) => (
+                <tr key={i} className="border-t border-surface-container-high hover:bg-surface-container-low transition-colors">
+                  <td className="px-lg py-md">
+                    <span className={`w-8 h-8 rounded-full flex items-center justify-center text-label-sm font-bold
+                      ${i === 0 ? 'bg-yellow-100 text-yellow-700' : i === 1 ? 'bg-gray-100 text-gray-600' : i === 2 ? 'bg-orange-100 text-orange-600' : 'bg-surface-container text-on-surface-variant'}`}>
+                      {i + 1}
+                    </span>
+                  </td>
+                  <td className="px-lg py-md text-body-md font-semibold text-on-surface">{l.name}</td>
+                  <td className="px-lg py-md"><span className="text-label-sm bg-primary/10 text-primary px-sm py-xs rounded">{l.spec}</span></td>
+                  <td className="px-lg py-md text-body-md text-on-surface">{l.cases}</td>
+                  <td className="px-lg py-md text-body-md font-semibold text-yellow-600">⭐ {l.rating}</td>
+                  <td className="px-lg py-md text-body-md font-semibold text-primary">{l.revenue}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Report;
