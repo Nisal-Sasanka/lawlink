@@ -127,3 +127,118 @@ const ComplaintReview = () => {
               ))}
             </div>
           </div>
+
+           {/* Timeline */}
+          <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card h-fit">
+            <h3 className="text-headline-sm text-on-surface mb-lg">Case Timeline</h3>
+            <div className="relative">
+              {caseData.timeline.map((t, i) => (
+                <div key={i} className="flex gap-md mb-lg last:mb-0">
+                  <div className="flex flex-col items-center">
+                    <div className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 ${t.done ? 'bg-primary' : 'bg-surface-container-high'}`}>
+                      {t.done ? <CheckCircle size={14} className="text-on-primary" /> : <Clock size={14} className="text-on-surface-variant" />}
+                    </div>
+                    {i < caseData.timeline.length - 1 && <div className={`w-0.5 flex-1 mt-xs ${t.done ? 'bg-primary' : 'bg-surface-container-high'}`} style={{ minHeight: '24px' }} />}
+                  </div>
+                  <div className="pb-md">
+                    <p className={`text-body-sm font-medium ${t.done ? 'text-on-surface' : 'text-on-surface-variant'}`}>{t.event}</p>
+                    <p className="text-body-sm text-on-surface-variant">{t.date}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Documents */}
+      {tab === 'documents' && (
+        <div className="space-y-md">
+          {caseData.documents.map((doc, i) => (
+            <div key={i} className="bg-white border border-surface-container-high rounded-xl p-lg shadow-card flex items-center gap-md">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                <Paperclip size={20} className="text-primary" />
+              </div>
+              <div className="flex-1">
+                <p className="text-body-md font-semibold text-on-surface">{doc.name}</p>
+                <p className="text-body-sm text-on-surface-variant">{doc.type} — Uploaded {doc.date}</p>
+              </div>
+              <button className="px-md py-sm rounded-lg border border-outline-variant text-body-sm hover:bg-surface-container transition-colors">Download</button>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Chat */}
+      {tab === 'chat' && (
+        <div className="bg-white border border-surface-container-high rounded-xl shadow-card flex flex-col" style={{ height: '500px' }}>
+          <div className="flex-1 overflow-y-auto p-lg space-y-lg">
+            {chat.map(m => (
+              <div key={m.id} className={`flex items-end gap-sm ${m.from === 'lawyer' ? 'flex-row-reverse' : 'flex-row'}`}>
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-label-sm font-bold shrink-0
+                  ${m.from === 'lawyer' ? 'bg-primary text-on-primary' : 'bg-surface-container-high text-on-surface-variant'}`}>
+                  {m.from === 'lawyer' ? 'Me' : 'C'}
+                </div>
+                <div className={`max-w-[70%] px-lg py-md rounded-2xl text-body-md
+                  ${m.from === 'lawyer' ? 'bg-primary text-on-primary rounded-br-sm' : 'bg-surface-container-low text-on-surface rounded-bl-sm'}`}>
+                  {m.text}
+                  <p className={`text-body-sm mt-xs opacity-70 ${m.from === 'lawyer' ? '' : ''}`}>{m.time}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="p-lg border-t border-surface-container-high">
+            <div className="flex items-center gap-sm bg-surface-container-low rounded-xl px-md py-sm">
+              <input type="text" placeholder="Send a message to your client..." value={msg} onChange={e => setMsg(e.target.value)} onKeyDown={e => e.key === 'Enter' && send()}
+                className="flex-1 bg-transparent text-body-md focus:outline-none" />
+              <button onClick={send} disabled={!msg.trim()}
+                className={`w-9 h-9 rounded-full flex items-center justify-center ${msg.trim() ? 'bg-primary text-on-primary' : 'bg-surface-container-high text-on-surface-variant'}`}>
+                <Send size={16} />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Resolution */}
+      {tab === 'resolution' && (
+        <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card max-w-2xl">
+          <h3 className="text-headline-sm text-on-surface flex items-center gap-sm mb-lg">
+            <CheckCircle size={20} className="text-green-600" /> Submit Case Resolution
+          </h3>
+          <div className="space-y-md">
+            <div>
+              <label className="text-label-sm text-on-surface-variant mb-xs block">Outcome *</label>
+              <select className="w-full border border-outline-variant rounded-lg p-md text-body-md focus:outline-none focus:border-primary">
+                <option value="">Select outcome...</option>
+                <option>Resolved in client's favor</option>
+                <option>Settled out of court</option>
+                <option>Case dismissed</option>
+                <option>Ongoing (requires extension)</option>
+              </select>
+            </div>
+            <div>
+              <label className="text-label-sm text-on-surface-variant mb-xs block">Resolution Summary *</label>
+              <textarea rows={5} value={resolution} onChange={e => setResolution(e.target.value)} placeholder="Describe the outcome and key actions taken..."
+                className="w-full border border-outline-variant rounded-lg p-md text-body-md focus:outline-none focus:border-primary resize-none" />
+            </div>
+            <div>
+              <label className="text-label-sm text-on-surface-variant mb-xs block">Final Court Date</label>
+              <input type="date" className="w-full border border-outline-variant rounded-lg p-md text-body-md focus:outline-none focus:border-primary" />
+            </div>
+            <div className="flex gap-md">
+              <button className="px-xl py-sm rounded-lg bg-green-600 text-white text-body-md font-semibold hover:bg-green-700 transition-colors">
+                Mark as Resolved
+              </button>
+              <button className="px-xl py-sm rounded-lg border border-outline-variant text-body-md hover:bg-surface-container transition-colors">
+                Save Draft
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default ComplaintReview;
