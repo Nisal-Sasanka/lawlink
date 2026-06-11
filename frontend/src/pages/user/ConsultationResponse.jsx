@@ -127,3 +127,21 @@ return (
           </div>
           {/* Input */}
           <div className="p-lg border-t border-surface-container-high">
+            <div className="flex items-center gap-sm bg-surface-container-low rounded-xl px-md py-sm">
+              <button className="text-on-surface-variant hover:text-primary transition-colors p-xs">
+                <Paperclip size={18} />
+              </button>
+              <input
+                type="text"
+                placeholder="Type your message..."
+                value={msg}
+                onChange={e => setMsg(e.target.value)}
+                onKeyDown={e => e.key === 'Enter' && send()}
+                className="flex-1 bg-transparent text-body-md text-on-surface focus:outline-none"
+              />
+              <button
+                onClick={send}
+                disabled={!msg.trim()}
+                className={`w-9 h-9 rounded-full flex items-center justify-center transition-colors
+                  ${msg.trim() ? 'bg-primary text-on-primary hover:opacity-90' : 'bg-surface-container-high text-on-surface-variant'}`}
+              >
