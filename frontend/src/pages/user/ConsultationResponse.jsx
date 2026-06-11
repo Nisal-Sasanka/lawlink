@@ -80,4 +80,9 @@ return (
               </div>
             </div>
           </div>
+          {/* Next Hearing */}
+          <div className="bg-primary/5 border border-primary/20 rounded-2xl p-lg">
+            <p className="text-label-md text-primary mb-xs">📅 Next Hearing</p>
+            <p className="text-body-md font-semibold text-on-surface">June 25, 2024</p>
+            <p className="text-body-sm text-on-surface-variant">10:30 AM — District Court, Chennai</p>
 
