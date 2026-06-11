@@ -145,3 +145,15 @@ return (
                 className={`w-9 h-9 rounded-full flex items-center justify-center transition-colors
                   ${msg.trim() ? 'bg-primary text-on-primary hover:opacity-90' : 'bg-surface-container-high text-on-surface-variant'}`}
               >
+                <Send size={16} />
+              </button>
+            </div>
+            <p className="text-body-sm text-on-surface-variant text-center mt-xs">Messages are end-to-end encrypted.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ConsultationResponse;
