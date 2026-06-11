@@ -33,3 +33,15 @@ const notifications = [
     time: '3 days ago', read: true, date: 'Jun 05, 2024'
   },
   {
+    id: 6, type: 'case', icon: <CheckCheck size={18} className="text-green-600" />,
+    title: 'Case CMP-003 Resolved',
+    message: 'Your earlier case "Consumer Fraud by Online Store" has been officially marked as Resolved. Congratulations!',
+    time: '1 week ago', read: true, date: 'Jun 01, 2024'
+  },
+];
+
+const typeColors = {
+  lawyer: 'bg-primary/10',
+  case: 'bg-blue-50',
+  message: 'bg-green-50',
+  payment: 'bg-purple-50',
