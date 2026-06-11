@@ -63,3 +63,22 @@ const Notification = () => {
     acc[n.date].push(n);
     return acc;
   }, {});
+return (
+    <div className="w-full max-w-3xl mx-auto">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-xl">
+        <div>
+          <h1 className="text-headline-lg text-on-surface flex items-center gap-md">
+            Notifications
+            {unread > 0 && (
+              <span className="bg-primary text-on-primary text-label-sm w-7 h-7 rounded-full flex items-center justify-center">{unread}</span>
+            )}
+          </h1>
+          <p className="text-body-md text-on-surface-variant mt-xs">Stay updated on your cases, lawyer assignments and payments.</p>
+        </div>
+        {unread > 0 && (
+          <button onClick={markAllRead} className="flex items-center gap-xs text-body-sm text-primary hover:underline">
+            <CheckCheck size={16} /> Mark all as read
+          </button>
+        )}
+      </div>
