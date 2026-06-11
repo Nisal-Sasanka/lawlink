@@ -100,3 +100,17 @@ return (
           <p className="text-headline-sm text-on-surface-variant">No notifications</p>
         </div>
       ) : (
+<div className="space-y-xl">
+          {Object.entries(grouped).map(([date, notifs]) => (
+            <div key={date}>
+              <p className="text-label-md text-on-surface-variant mb-md">{date}</p>
+              <div className="space-y-sm">
+                {notifs.map(n => (
+                  <div
+                    key={n.id}
+                    onClick={() => markRead(n.id)}
+                    className={`flex items-start gap-lg p-lg rounded-xl border cursor-pointer transition-all
+                      ${!n.read ? 'bg-white border-primary/30 shadow-card' : 'bg-white border-surface-container-high opacity-70 hover:opacity-100'}`}
+                  >
+                    <div className={`w-10 h-10 rounded-full ${typeColors[n.type]} flex items-center justify-center shrink-0`}>
+                      {n.icon}
