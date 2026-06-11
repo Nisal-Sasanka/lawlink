@@ -102,3 +102,26 @@ return (
               <span className="text-label-sm bg-surface-container text-on-surface-variant px-sm py-xs rounded">CMP-001</span>
             </div>
           </div>
+          {/* Messages */}
+          <div className="flex-1 overflow-y-auto p-lg space-y-lg">
+            {chat.map(m => (
+              <div key={m.id} className={`flex items-end gap-sm ${m.from === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-label-sm font-bold shrink-0
+                  ${m.from === 'user' ? 'bg-primary text-on-primary' : 'bg-primary-container text-on-primary-container'}`}>
+                  {m.avatar}
+                </div>
+                <div className={`max-w-[75%] ${m.from === 'user' ? 'items-end' : 'items-start'} flex flex-col gap-xs`}>
+                  <div className={`px-lg py-md rounded-2xl text-body-md leading-relaxed
+                    ${m.from === 'user' ? 'bg-primary text-on-primary rounded-br-sm' : 'bg-surface-container-low text-on-surface rounded-bl-sm'}`}>
+                    {m.text}
+                    {m.attachments?.map(a => (
+                      <div key={a} className="flex items-center gap-xs mt-sm text-body-sm opacity-80">
+                        <Paperclip size={12} /> {a}
+                      </div>
+                    ))}
+                  </div>
+                  <span className={`text-body-sm text-on-surface-variant ${m.from === 'user' ? 'text-right' : ''}`}>{m.time}</span>
+                </div>
+              </div>
+            ))}
+          </div>
