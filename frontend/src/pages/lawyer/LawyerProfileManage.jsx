@@ -89,3 +89,89 @@ const LawyerProfileManage = () => {
             <p className="text-body-md font-medium text-on-surface">{profile.consultationFee} / session</p>
           </div>
         </div>
+
+        {/* Right Column */}
+        <div className="lg:col-span-2 space-y-lg">
+          {/* Professional Info */}
+          <div className="bg-white border border-surface-container-high rounded-2xl p-xl shadow-card">
+            <div className="flex items-center justify-between mb-xl">
+              <h3 className="text-headline-sm text-on-surface flex items-center gap-sm"><Briefcase size={18} className="text-primary" /> Professional Details</h3>
+              {!editing ? (
+                <button onClick={() => setEditing(true)} className="flex items-center gap-xs px-md py-xs rounded-lg border border-outline-variant text-body-sm hover:bg-surface-container">
+                  <Edit2 size={14} /> Edit
+                </button>
+              ) : (
+                <div className="flex gap-sm">
+                  <button onClick={() => setEditing(false)} className="flex items-center gap-xs px-md py-xs rounded-lg border border-outline-variant text-body-sm hover:bg-surface-container">
+                    <X size={14} /> Cancel
+                  </button>
+                  <button onClick={() => { setProfile(draft); setEditing(false); }} className="flex items-center gap-xs px-md py-xs rounded-lg bg-primary text-on-primary text-body-sm">
+                    <Save size={14} /> Save
+                  </button>
+                </div>
+              )}
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-lg">
+              <Field label="Full Name" field="name" />
+              <Field label="Specialization" field="specialization" />
+              <Field label="Experience (years)" field="experience" type="number" />
+              <Field label="Location" field="location" />
+              <Field label="State" field="state" />
+              <Field label="Languages" field="languages" />
+              <Field label="Consultation Fee" field="consultationFee" />
+              <Field label="Availability" field="availability" />
+              <Field label="Education" field="education" fullWidth />
+              <Field label="Professional Bio" field="bio" type="textarea" fullWidth />
+            </div>
+          </div>
+
+          {/* Contact Info */}
+          <div className="bg-white border border-surface-container-high rounded-2xl p-xl shadow-card">
+            <h3 className="text-headline-sm text-on-surface flex items-center gap-sm mb-xl"><Mail size={18} className="text-primary" /> Contact</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-md">
+              <div className="flex items-center gap-md bg-surface-container-low rounded-xl p-md">
+                <Mail size={18} className="text-primary" />
+                <div>
+                  <p className="text-label-sm text-on-surface-variant">Email</p>
+                  <p className="text-body-md font-medium text-on-surface">{profile.email}</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-md bg-surface-container-low rounded-xl p-md">
+                <Phone size={18} className="text-primary" />
+                <div>
+                  <p className="text-label-sm text-on-surface-variant">Phone</p>
+                  <p className="text-body-md font-medium text-on-surface">{profile.phone}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Documents */}
+          <div className="bg-white border border-surface-container-high rounded-2xl p-xl shadow-card">
+            <h3 className="text-headline-sm text-on-surface flex items-center gap-sm mb-xl"><GraduationCap size={18} className="text-primary" /> Credentials & Documents</h3>
+            <div className="space-y-sm">
+              {[
+                { label: 'Bar Council Certificate', status: 'Verified', color: 'text-green-600 bg-green-50' },
+                { label: 'Law Degree Certificate', status: 'Verified', color: 'text-green-600 bg-green-50' },
+                { label: 'Practice Certificate 2024', status: 'Pending Renewal', color: 'text-yellow-600 bg-yellow-50' },
+              ].map((doc, i) => (
+                <div key={i} className="flex items-center justify-between bg-surface-container-low rounded-xl p-md">
+                  <div className="flex items-center gap-sm">
+                    <FileText size={18} className="text-primary" />
+                    <span className="text-body-md text-on-surface">{doc.label}</span>
+                  </div>
+                  <div className="flex items-center gap-sm">
+                    <span className={`text-label-sm px-sm py-xs rounded-full ${doc.color}`}>{doc.status}</span>
+                    <button className="text-body-sm text-primary hover:underline">Re-upload</button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default LawyerProfileManage;
