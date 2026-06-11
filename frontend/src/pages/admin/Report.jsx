@@ -51,3 +51,43 @@ const Report = () => {
           </button>
         </div>
       </div>
+
+      {/* KPI Cards */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-md mb-xl">
+        {[
+          { label: 'Total Users', value: '1,248', change: '+18%', positive: true, icon: <Users size={22} className="text-primary" />, bg: 'bg-primary/5' },
+          { label: 'Active Lawyers', value: '156', change: '+6%', positive: true, icon: <Scale size={22} className="text-green-600" />, bg: 'bg-green-50' },
+          { label: 'Cases This Month', value: '124', change: '+26%', positive: true, icon: <FileText size={22} className="text-blue-600" />, bg: 'bg-blue-50' },
+          { label: 'Revenue (Jun)', value: '₹3.12L', change: '+18%', positive: true, icon: <DollarSign size={22} className="text-yellow-600" />, bg: 'bg-yellow-50' },
+        ].map((kpi, i) => (
+          <div key={i} className="bg-white border border-surface-container-high rounded-xl p-lg shadow-card">
+            <div className={`w-10 h-10 rounded-xl ${kpi.bg} flex items-center justify-center mb-md`}>{kpi.icon}</div>
+            <p className="text-label-md text-on-surface-variant">{kpi.label}</p>
+            <p className="text-display text-on-surface mt-xs">{kpi.value}</p>
+            <p className={`text-body-sm mt-xs font-medium ${kpi.positive ? 'text-green-600' : 'text-red-600'}`}>
+              {kpi.positive ? '↑' : '↓'} {kpi.change} vs last month
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-xl mb-xl">
+        {/* User Growth Chart */}
+        <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card">
+          <h2 className="text-headline-sm text-on-surface mb-xl flex items-center gap-sm">
+            <TrendingUp size={18} className="text-primary" /> User Growth (2024)
+          </h2>
+          <div className="flex items-end gap-md h-40">
+            {months.map((m, i) => (
+              <div key={m} className="flex-1 flex flex-col items-center gap-sm">
+                <span className="text-label-sm text-on-surface-variant">{userGrowth[i]}</span>
+                <div
+                  className="w-full bg-primary rounded-t-lg transition-all hover:opacity-80 cursor-pointer"
+                  style={{ height: `${(userGrowth[i] / 1248) * 130}px` }}
+                  title={`${m}: ${userGrowth[i]} users`}
+                />
+                <span className="text-label-sm text-on-surface-variant">{m}</span>
+              </div>
+            ))}
+          </div>
+        </div>
