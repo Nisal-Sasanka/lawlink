@@ -115,3 +115,52 @@ const ManageComplaints = () => {
           </div>
         ))}
       </div>
+
+       {/* Detail Modal */}
+      {selected && (
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-lg" onClick={() => setSelected(null)}>
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl p-xl max-h-[90vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
+            <div className="flex items-center justify-between mb-xl">
+              <div>
+                <span className="text-label-sm font-bold text-primary bg-primary/10 px-sm py-xs rounded">{selected.id}</span>
+                <h2 className="text-headline-sm text-on-surface mt-sm">{selected.title}</h2>
+              </div>
+              <span className={`text-label-sm px-md py-sm rounded-full font-semibold flex items-center gap-xs ${statusConfig[selected.status]?.color}`}>
+                {statusConfig[selected.status]?.icon} {selected.status}
+              </span>
+            </div>
+            <div className="bg-surface-container-low rounded-xl p-lg mb-lg">
+              <p className="text-body-md text-on-surface">{selected.description}</p>
+            </div>
+            <div className="grid grid-cols-2 gap-md mb-xl">
+              {[
+                { label: 'Filed By', value: selected.user },
+                { label: 'Email', value: selected.userEmail },
+                { label: 'Category', value: selected.category },
+                { label: 'Priority', value: selected.priority },
+                { label: 'Filed On', value: selected.date },
+                { label: 'Assigned To', value: selected.assignedTo || 'Unassigned' },
+              ].map((item, i) => (
+                <div key={i}>
+                  <p className="text-label-sm text-on-surface-variant">{item.label}</p>
+                  <p className="text-body-md text-on-surface font-medium">{item.value}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mb-lg">
+              <label className="text-label-sm text-on-surface-variant mb-xs block">Admin Response / Note</label>
+              <textarea rows={3} placeholder="Add a note or assign this complaint..." className="w-full border border-outline-variant rounded-lg p-md text-body-md focus:outline-none focus:border-primary resize-none" />
+            </div>
+            <div className="flex gap-md justify-end">
+              <button onClick={() => setSelected(null)} className="px-lg py-sm rounded-lg border border-outline-variant text-body-md hover:bg-surface-container transition-colors">Close</button>
+              <button className="px-lg py-sm rounded-lg bg-green-600 text-white text-body-md hover:bg-green-700 transition-colors">Mark Resolved</button>
+              <button className="px-lg py-sm rounded-lg bg-primary text-on-primary text-body-md hover:opacity-90 transition-colors">Assign Lawyer</button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default ManageComplaints;
