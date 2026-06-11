@@ -42,3 +42,4 @@ const LawyerProfileManage = () => {
         <p className="text-body-md text-on-surface font-medium">{profile[field]}</p>
       )}
     </div>
+    );
