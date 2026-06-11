@@ -90,3 +90,13 @@ return (
               ${filter === f ? 'bg-primary text-on-primary' : 'bg-white border border-surface-container-high text-on-surface-variant hover:bg-surface-container-low'}`}>
             {f} {f === 'Unread' && unread > 0 && `(${unread})`}
           </button>
+        ))}
+      </div>
+
+      {/* Notifications */}
+      {Object.keys(grouped).length === 0 ? (
+        <div className="bg-white border border-surface-container-high rounded-xl p-3xl text-center shadow-card">
+          <Bell size={48} className="mx-auto text-on-surface-variant mb-lg opacity-30" />
+          <p className="text-headline-sm text-on-surface-variant">No notifications</p>
+        </div>
+      ) : (
