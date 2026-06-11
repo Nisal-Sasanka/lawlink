@@ -91,3 +91,14 @@ return (
         {/* Chat Window */}
         <div className="lg:col-span-2 bg-white border border-surface-container-high rounded-2xl shadow-card flex flex-col" style={{ minHeight: '600px' }}>
 
+          {/* Chat Header */}
+          <div className="flex items-center gap-md p-lg border-b border-surface-container-high">
+            <div className="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-label-sm font-bold text-on-primary-container">PN</div>
+            <div>
+              <p className="text-body-md font-semibold text-on-surface">Adv. Priya Nair</p>
+              <p className="text-body-sm text-green-600 flex items-center gap-xs"><span className="w-2 h-2 rounded-full bg-green-500 inline-block" /> Online</p>
+            </div>
+            <div className="ml-auto">
+              <span className="text-label-sm bg-surface-container text-on-surface-variant px-sm py-xs rounded">CMP-001</span>
+            </div>
+          </div>
