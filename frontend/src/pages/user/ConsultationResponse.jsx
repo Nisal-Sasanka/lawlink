@@ -64,4 +64,20 @@ return (
               <div className="flex justify-between"><span>Cases Won</span><span className="font-medium text-on-surface">42 / 48</span></div>
             </div>
           </div>
+          {/* Case Info */}
+          <div className="bg-white border border-surface-container-high rounded-2xl p-lg shadow-card">
+            <h3 className="text-label-md text-on-surface-variant mb-md">Case Details</h3>
+            <div className="space-y-sm text-body-sm">
+              <div className="flex items-center gap-sm text-on-surface-variant">
+                <FileText size={14} className="text-primary" />
+                <span className="font-medium text-on-surface">CMP-001</span>
+              </div>
+              <p className="text-on-surface font-medium">Property Dispute with Neighbor</p>
+              <div className="flex items-center gap-xs mt-sm">
+                <span className="bg-blue-100 text-blue-700 text-label-sm px-sm py-xs rounded-full flex items-center gap-xs">
+                  <Clock size={12} /> In Review
+                </span>
+              </div>
+            </div>
+          </div>
 
