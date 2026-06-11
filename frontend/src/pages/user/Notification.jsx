@@ -21,3 +21,15 @@ const notifications = [
     time: '1 day ago', read: true, date: 'Yesterday'
   },
   {
+    id: 4, type: 'payment', icon: <CreditCard size={18} className="text-purple-600" />,
+    title: 'Payment Confirmed',
+    message: 'Your payment of ₹1,999 for the Standard Representation Package was successfully processed. Transaction ID: TXN-2024-LLK-00842.',
+    time: '2 days ago', read: true, date: 'Jun 06, 2024'
+  },
+  {
+    id: 5, type: 'case', icon: <Clock size={18} className="text-yellow-600" />,
+    title: 'Hearing Scheduled',
+    message: 'A court hearing has been scheduled for your case CMP-001 on June 25, 2024 at 10:30 AM at District Court, Chennai.',
+    time: '3 days ago', read: true, date: 'Jun 05, 2024'
+  },
+  {
