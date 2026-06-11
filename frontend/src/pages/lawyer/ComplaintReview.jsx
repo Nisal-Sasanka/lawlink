@@ -71,3 +71,59 @@ const ComplaintReview = () => {
           <h1 className="text-headline-md text-on-surface">{caseData.title}</h1>
         </div>
       </div>
+
+      {/* Tabs */}
+      <div className="flex gap-sm mb-xl border-b border-surface-container-high">
+        {tabs.map(t => (
+          <button key={t} onClick={() => setTab(t)}
+            className={`px-lg py-sm text-label-md capitalize transition-colors border-b-2 -mb-px
+              ${tab === t ? 'border-primary text-primary' : 'border-transparent text-on-surface-variant hover:text-on-surface'}`}>
+            {t}
+          </button>
+        ))}
+      </div>
+
+      {/* Overview */}
+      {tab === 'overview' && (
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-xl">
+          <div className="lg:col-span-2 space-y-lg">
+            {/* Client Info */}
+            <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card">
+              <h3 className="text-headline-sm text-on-surface flex items-center gap-sm mb-lg"><User size={18} className="text-primary" /> Client Information</h3>
+              <div className="grid grid-cols-2 gap-md">
+                {[
+                  { label: 'Name', value: caseData.client },
+                  { label: 'Email', value: caseData.clientEmail },
+                  { label: 'Phone', value: caseData.clientPhone },
+                  { label: 'Package', value: caseData.package },
+                  { label: 'Category', value: caseData.category },
+                  { label: 'Filed On', value: caseData.filed },
+                ].map((item, i) => (
+                  <div key={i}>
+                    <p className="text-label-sm text-on-surface-variant">{item.label}</p>
+                    <p className="text-body-md text-on-surface font-medium">{item.value}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Description */}
+            <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card">
+              <h3 className="text-headline-sm text-on-surface flex items-center gap-sm mb-md"><FileText size={18} className="text-primary" /> Case Description</h3>
+              <p className="text-body-md text-on-surface leading-relaxed">{caseData.description}</p>
+            </div>
+
+            {/* Hearings */}
+            <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card">
+              <h3 className="text-headline-sm text-on-surface flex items-center gap-sm mb-md"><Calendar size={18} className="text-primary" /> Scheduled Hearings</h3>
+              {caseData.hearings.map((h, i) => (
+                <div key={i} className="flex items-center justify-between bg-surface-container-low rounded-xl p-md">
+                  <div>
+                    <p className="text-body-md font-semibold text-on-surface">{h.date} — {h.time}</p>
+                    <p className="text-body-sm text-on-surface-variant">{h.court}</p>
+                  </div>
+                  <span className="text-label-sm bg-blue-100 text-blue-700 px-sm py-xs rounded-full">{h.status}</span>
+                </div>
+              ))}
+            </div>
+          </div>
