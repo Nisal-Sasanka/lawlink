@@ -30,3 +30,88 @@ const ManageComplaints = () => {
       c.user.toLowerCase().includes(search.toLowerCase()) ||
       c.id.toLowerCase().includes(search.toLowerCase()))
   );
+
+  return (
+    <div className="w-full">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-md mb-xl">
+        <div>
+          <h1 className="text-headline-lg text-on-surface">Manage Complaints</h1>
+          <p className="text-body-md text-on-surface-variant mt-xs">View, assign and resolve user complaints across the platform.</p>
+        </div>
+      </div>
+
+      {/* Stats */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-md mb-xl">
+        {[
+          { label: 'Total', value: complaints.length, color: 'text-primary' },
+          { label: 'Open', value: complaints.filter(c => c.status === 'Open').length, color: 'text-blue-600' },
+          { label: 'In Review', value: complaints.filter(c => c.status === 'In Review').length, color: 'text-yellow-600' },
+          { label: 'Resolved', value: complaints.filter(c => c.status === 'Resolved').length, color: 'text-green-600' },
+        ].map((s, i) => (
+          <div key={i} className="bg-white border border-surface-container-high rounded-xl p-lg shadow-card">
+            <p className="text-label-md text-on-surface-variant">{s.label}</p>
+            <p className={`text-display ${s.color} mt-xs`}>{s.value}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Filters */}
+      <div className="bg-white border border-surface-container-high rounded-xl p-lg shadow-card mb-lg">
+        <div className="flex flex-col sm:flex-row gap-md items-start sm:items-center justify-between">
+          <div className="relative flex-1">
+            <Search size={16} className="absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant" />
+            <input
+              type="text" placeholder="Search by ID, title, or user..."
+              value={search} onChange={e => setSearch(e.target.value)}
+              className="w-full pl-10 pr-md py-sm border border-outline-variant rounded-lg text-body-md focus:outline-none focus:border-primary"
+            />
+          </div>
+          <div className="flex items-center gap-sm flex-wrap">
+            <Filter size={16} className="text-on-surface-variant" />
+            {['All', 'Open', 'In Review', 'Resolved', 'Closed'].map(f => (
+              <button key={f} onClick={() => setStatusFilter(f)}
+                className={`px-md py-xs rounded-lg text-label-sm transition-colors ${statusFilter === f ? 'bg-primary text-on-primary' : 'bg-surface-container text-on-surface-variant hover:bg-surface-container-high'}`}>
+                {f}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Cards */}
+      <div className="space-y-md">
+        {filtered.map(c => (
+          <div key={c.id} className="bg-white border border-surface-container-high rounded-xl p-lg shadow-card hover:shadow-md transition-shadow">
+            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-md">
+              <div className="flex-1">
+                <div className="flex items-center gap-sm mb-sm flex-wrap">
+                  <span className="text-label-sm font-bold text-primary bg-primary/10 px-sm py-xs rounded">{c.id}</span>
+                  <span className={`text-label-sm px-sm py-xs rounded-full font-semibold flex items-center gap-xs ${statusConfig[c.status]?.color}`}>
+                    {statusConfig[c.status]?.icon} {c.status}
+                  </span>
+                  <span className={`text-label-sm px-sm py-xs rounded-full font-semibold ${priorityColor[c.priority]}`}>{c.priority} Priority</span>
+                  <span className="text-label-sm bg-surface-container text-on-surface-variant px-sm py-xs rounded">{c.category}</span>
+                </div>
+                <h3 className="text-headline-sm text-on-surface mb-xs">{c.title}</h3>
+                <p className="text-body-sm text-on-surface-variant mb-sm line-clamp-2">{c.description}</p>
+                <div className="flex items-center gap-lg text-body-sm text-on-surface-variant flex-wrap">
+                  <span>👤 {c.user}</span>
+                  <span>📅 {c.date}</span>
+                  <span>⚖️ {c.assignedTo || <span className="text-yellow-600 font-medium">Unassigned</span>}</span>
+                </div>
+              </div>
+              <div className="flex gap-sm">
+                <button onClick={() => setSelected(c)} className="flex items-center gap-xs px-md py-sm rounded-lg border border-outline-variant text-body-sm hover:bg-surface-container transition-colors">
+                  <Eye size={14} /> View
+                </button>
+                {!c.assignedTo && (
+                  <button className="flex items-center gap-xs px-md py-sm rounded-lg bg-primary text-on-primary text-body-sm hover:bg-primary-container transition-colors">
+                    Assign
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
