@@ -85,4 +85,9 @@ return (
             <p className="text-label-md text-primary mb-xs">📅 Next Hearing</p>
             <p className="text-body-md font-semibold text-on-surface">June 25, 2024</p>
             <p className="text-body-sm text-on-surface-variant">10:30 AM — District Court, Chennai</p>
+</div>
+        </div>
+
+        {/* Chat Window */}
+        <div className="lg:col-span-2 bg-white border border-surface-container-high rounded-2xl shadow-card flex flex-col" style={{ minHeight: '600px' }}>
 
