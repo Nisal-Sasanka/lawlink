@@ -133,3 +133,33 @@ const AssignedComplaints = () => {
           </div>
         ))}
       </div>
+
+      {/* Upcoming Hearings */}
+      <div className="mt-xl bg-white border border-surface-container-high rounded-xl p-xl shadow-card">
+        <h2 className="text-headline-sm text-on-surface mb-lg flex items-center gap-sm">
+          <Calendar size={20} className="text-primary" /> Upcoming Court Hearings
+        </h2>
+        <div className="space-y-sm">
+          {cases.filter(c => c.hearing !== 'TBD' && c.hearing !== '—').map(c => (
+            <div key={c.id} className="flex items-center justify-between bg-surface-container-low rounded-xl p-md">
+              <div className="flex items-center gap-md">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Calendar size={18} className="text-primary" />
+                </div>
+                <div>
+                  <p className="text-body-md font-semibold text-on-surface">{c.hearing}</p>
+                  <p className="text-body-sm text-on-surface-variant">{c.id} — {c.client}</p>
+                </div>
+              </div>
+              <button onClick={() => navigate(`/lawyer/complaint/${c.id}`)} className="text-body-sm text-primary hover:underline">
+                View Case →
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default AssignedComplaints;
