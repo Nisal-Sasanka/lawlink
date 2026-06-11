@@ -23,3 +23,16 @@ const messages = [
     time: '3:48 PM, Jun 07', attachments: [],
   },
 ];
+const ConsultationResponse = () => {
+  const [msg, setMsg] = useState('');
+  const [chat, setChat] = useState(messages);
+
+  const send = () => {
+    if (!msg.trim()) return;
+    setChat(prev => [...prev, {
+      id: Date.now(), from: 'user', sender: 'You', avatar: 'JD',
+      text: msg, time: 'Just now', attachments: [],
+    }]);
+    setMsg('');
+  };
+
