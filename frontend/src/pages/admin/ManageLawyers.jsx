@@ -78,3 +78,118 @@ const ManageLawyers = () => {
           </div>
         </div>
       </div>
+
+      {/* Table */}
+      <div className="bg-white border border-surface-container-high rounded-xl shadow-card overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="w-full text-left">
+            <thead className="bg-surface-container-low border-b border-surface-container-high">
+              <tr>
+                {['Lawyer', 'Specialization', 'Location', 'Cases', 'Rating', 'Status', 'Actions'].map(h => (
+                  <th key={h} className="px-lg py-md text-label-md text-on-surface-variant">{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {filtered.map(lawyer => (
+                <tr key={lawyer.id} className="border-b border-surface-container-high hover:bg-surface-container-low transition-colors">
+                  <td className="px-lg py-md">
+                    <div className="flex items-center gap-md">
+                      <div className="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-label-sm font-bold text-on-primary-container">
+                        {lawyer.avatar}
+                      </div>
+                      <div>
+                        <p className="text-body-md font-semibold text-on-surface">{lawyer.name}</p>
+                        <p className="text-body-sm text-on-surface-variant">{lawyer.experience} exp</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="px-lg py-md">
+                    <span className="text-body-sm bg-surface-container px-sm py-xs rounded-lg text-on-surface-variant">{lawyer.specialization}</span>
+                  </td>
+                  <td className="px-lg py-md">
+                    <div className="flex items-center gap-xs text-body-sm text-on-surface-variant">
+                      <MapPin size={14} /> {lawyer.location}
+                    </div>
+                  </td>
+                  <td className="px-lg py-md text-body-md font-semibold text-on-surface">{lawyer.cases}</td>
+                  <td className="px-lg py-md">
+                    <div className="flex items-center gap-xs text-body-sm font-semibold text-yellow-600">
+                      <Star size={14} fill="currentColor" /> {lawyer.rating}
+                    </div>
+                  </td>
+                  <td className="px-lg py-md">
+                    <span className={`text-label-sm px-sm py-xs rounded-full font-semibold ${statusColor[lawyer.status]}`}>{lawyer.status}</span>
+                  </td>
+                  <td className="px-lg py-md">
+                    <div className="flex items-center gap-sm">
+                      <button onClick={() => setSelected(lawyer)} className="p-xs rounded-lg text-primary hover:bg-surface-container transition-colors" title="View Details">
+                        <Eye size={16} />
+                      </button>
+                      {lawyer.status === 'Pending' && (
+                        <button className="p-xs rounded-lg text-green-600 hover:bg-green-50 transition-colors" title="Approve">
+                          <CheckCircle size={16} />
+                        </button>
+                      )}
+                      {lawyer.status !== 'Suspended' && (
+                        <button className="p-xs rounded-lg text-red-500 hover:bg-red-50 transition-colors" title="Suspend">
+                          <XCircle size={16} />
+                        </button>
+                      )}
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="px-lg py-md border-t border-surface-container-high text-body-sm text-on-surface-variant">
+          Showing {filtered.length} of {lawyers.length} lawyers
+        </div>
+      </div>
+
+      {/* Detail Modal */}
+      {selected && (
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-lg" onClick={() => setSelected(null)}>
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-xl" onClick={e => e.stopPropagation()}>
+            <div className="flex items-center gap-lg mb-xl">
+              <div className="w-16 h-16 rounded-full bg-primary-container flex items-center justify-center text-headline-sm font-bold text-on-primary-container">
+                {selected.avatar}
+              </div>
+              <div>
+                <h2 className="text-headline-sm text-on-surface">{selected.name}</h2>
+                <span className={`text-label-sm px-sm py-xs rounded-full font-semibold ${statusColor[selected.status]}`}>{selected.status}</span>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-md mb-xl">
+              {[
+                { icon: <Mail size={16} />, label: 'Email', value: selected.email },
+                { icon: <Phone size={16} />, label: 'Phone', value: selected.phone },
+                { icon: <Briefcase size={16} />, label: 'Specialization', value: selected.specialization },
+                { icon: <MapPin size={16} />, label: 'Location', value: selected.location },
+                { icon: <Star size={16} />, label: 'Rating', value: `${selected.rating} / 5.0` },
+                { icon: <Briefcase size={16} />, label: 'Cases Handled', value: selected.cases },
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-sm">
+                  <span className="text-primary mt-xs">{item.icon}</span>
+                  <div>
+                    <p className="text-label-sm text-on-surface-variant">{item.label}</p>
+                    <p className="text-body-sm text-on-surface font-medium">{item.value}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="flex gap-md justify-end">
+              <button onClick={() => setSelected(null)} className="px-lg py-sm rounded-lg border border-outline-variant text-body-md hover:bg-surface-container transition-colors">Close</button>
+              {selected.status === 'Pending' && (
+                <button className="px-lg py-sm rounded-lg bg-primary text-on-primary text-body-md hover:bg-primary-container transition-colors">Approve Lawyer</button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default ManageLawyers;
