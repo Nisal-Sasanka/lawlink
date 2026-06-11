@@ -56,3 +56,80 @@ const AssignedComplaints = () => {
           </div>
         ))}
       </div>
+
+      {/* Search & Filter */}
+      <div className="bg-white border border-surface-container-high rounded-xl p-lg shadow-card mb-lg">
+        <div className="flex flex-col sm:flex-row gap-md items-start sm:items-center justify-between">
+          <div className="relative flex-1">
+            <Search size={16} className="absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant" />
+            <input
+              type="text" placeholder="Search by ID, title or client..."
+              value={search} onChange={e => setSearch(e.target.value)}
+              className="w-full pl-10 pr-md py-sm border border-outline-variant rounded-lg text-body-md focus:outline-none focus:border-primary"
+            />
+          </div>
+          <div className="flex items-center gap-sm flex-wrap">
+            <Filter size={16} className="text-on-surface-variant" />
+            {['All', 'Open', 'In Review', 'Resolved'].map(f => (
+              <button key={f} onClick={() => setStatusFilter(f)}
+                className={`px-md py-xs rounded-lg text-label-sm transition-colors ${statusFilter === f ? 'bg-primary text-on-primary' : 'bg-surface-container text-on-surface-variant hover:bg-surface-container-high'}`}>
+                {f}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Cases */}
+      <div className="space-y-md">
+        {filtered.map(c => (
+          <div key={c.id} className="bg-white border border-surface-container-high rounded-xl p-lg shadow-card hover:shadow-md transition-shadow">
+            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-md">
+              <div className="flex-1">
+                {/* Badges */}
+                <div className="flex items-center gap-sm mb-sm flex-wrap">
+                  <span className="text-label-sm font-bold text-primary bg-primary/10 px-sm py-xs rounded">{c.id}</span>
+                  <span className={`text-label-sm px-sm py-xs rounded-full font-semibold flex items-center gap-xs ${statusConfig[c.status]?.color}`}>
+                    {statusConfig[c.status]?.icon} {c.status}
+                  </span>
+                  <span className={`text-label-sm px-sm py-xs rounded-full font-semibold ${priorityColor[c.priority]}`}>{c.priority}</span>
+                  <span className="text-label-sm bg-surface-container text-on-surface-variant px-sm py-xs rounded">{c.category}</span>
+                  <span className="text-label-sm bg-surface-container text-on-surface-variant px-sm py-xs rounded">📦 {c.package}</span>
+                  {c.unreadMessages > 0 && (
+                    <span className="text-label-sm bg-primary text-on-primary px-sm py-xs rounded-full">
+                      💬 {c.unreadMessages} new
+                    </span>
+                  )}
+                </div>
+
+                {/* Title */}
+                <h3 className="text-headline-sm text-on-surface mb-sm">{c.title}</h3>
+
+                {/* Client & Meta */}
+                <div className="flex items-center gap-lg flex-wrap">
+                  <div className="flex items-center gap-sm">
+                    <div className="w-7 h-7 rounded-full bg-secondary-container flex items-center justify-center text-label-sm font-bold text-on-secondary-container">
+                      {c.clientAvatar}
+                    </div>
+                    <span className="text-body-sm text-on-surface font-medium">{c.client}</span>
+                  </div>
+                  <div className="flex items-center gap-xs text-body-sm text-on-surface-variant">
+                    <Clock size={12} /> Filed: {c.date}
+                  </div>
+                  <div className="flex items-center gap-xs text-body-sm text-on-surface-variant">
+                    <Calendar size={12} /> Hearing: <span className="font-medium text-on-surface">{c.hearing}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Button */}
+              <button
+                onClick={() => navigate(`/lawyer/complaint/${c.id}`)}
+                className="flex items-center gap-xs px-lg py-sm rounded-xl bg-primary text-on-primary text-body-sm font-semibold hover:opacity-90 transition-opacity shrink-0"
+              >
+                <Eye size={16} /> Review Case <ArrowRight size={16} />
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
