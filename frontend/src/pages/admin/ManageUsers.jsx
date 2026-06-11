@@ -77,3 +77,122 @@ const ManageUsers = () => {
           </div>
         </div>
       </div>
+
+      {/* Table */}
+      <div className="bg-white border border-surface-container-high rounded-xl shadow-card overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="w-full text-left">
+            <thead className="bg-surface-container-low border-b border-surface-container-high">
+              <tr>
+                {['User', 'Contact', 'Location', 'Cases', 'Joined', 'Status', 'Actions'].map(h => (
+                  <th key={h} className="px-lg py-md text-label-md text-on-surface-variant">{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {filtered.map(user => (
+                <tr key={user.id} className="border-b border-surface-container-high hover:bg-surface-container-low transition-colors">
+                  <td className="px-lg py-md">
+                    <div className="flex items-center gap-md">
+                      <div className="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-label-sm font-bold text-on-secondary-container">
+                        {user.avatar}
+                      </div>
+                      <div>
+                        <p className="text-body-md font-semibold text-on-surface">{user.name}</p>
+                        <p className="text-body-sm text-on-surface-variant">{user.id}</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="px-lg py-md">
+                    <div className="space-y-xs">
+                      <div className="flex items-center gap-xs text-body-sm text-on-surface-variant">
+                        <Mail size={12} /> {user.email}
+                      </div>
+                      <div className="flex items-center gap-xs text-body-sm text-on-surface-variant">
+                        <Phone size={12} /> {user.phone}
+                      </div>
+                    </div>
+                  </td>
+                  <td className="px-lg py-md text-body-md text-on-surface-variant">{user.city}</td>
+                  <td className="px-lg py-md text-body-md font-bold text-primary">{user.cases}</td>
+                  <td className="px-lg py-md">
+                    <div className="flex items-center gap-xs text-body-sm text-on-surface-variant">
+                      <Calendar size={12} /> {user.joined}
+                    </div>
+                  </td>
+                  <td className="px-lg py-md">
+                    <span className={`text-label-sm px-sm py-xs rounded-full font-semibold ${statusConfig[user.status]}`}>{user.status}</span>
+                  </td>
+                  <td className="px-lg py-md">
+                    <div className="flex items-center gap-sm">
+                      <button onClick={() => setSelected(user)} className="p-xs rounded-lg text-primary hover:bg-surface-container transition-colors" title="View">
+                        <Eye size={16} />
+                      </button>
+                      {user.status !== 'Suspended' ? (
+                        <button className="p-xs rounded-lg text-red-500 hover:bg-red-50 transition-colors" title="Suspend">
+                          <UserX size={16} />
+                        </button>
+                      ) : (
+                        <button className="p-xs rounded-lg text-green-600 hover:bg-green-50 transition-colors" title="Reinstate">
+                          <UserCheck size={16} />
+                        </button>
+                      )}
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="px-lg py-md border-t border-surface-container-high text-body-sm text-on-surface-variant">
+          Showing {filtered.length} of {users.length} users
+        </div>
+      </div>
+
+      {/* User Detail Modal */}
+      {selected && (
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-lg" onClick={() => setSelected(null)}>
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-xl" onClick={e => e.stopPropagation()}>
+            <div className="flex items-center gap-lg mb-xl">
+              <div className="w-16 h-16 rounded-full bg-secondary-container flex items-center justify-center text-headline-sm font-bold text-on-secondary-container">
+                {selected.avatar}
+              </div>
+              <div>
+                <h2 className="text-headline-sm text-on-surface">{selected.name}</h2>
+                <span className={`text-label-sm px-sm py-xs rounded-full font-semibold ${statusConfig[selected.status]}`}>{selected.status}</span>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-md mb-xl">
+              {[
+                { icon: <Mail size={16} />, label: 'Email', value: selected.email },
+                { icon: <Phone size={16} />, label: 'Phone', value: selected.phone },
+                { icon: <Calendar size={16} />, label: 'City', value: selected.city },
+                { icon: <Calendar size={16} />, label: 'Joined', value: selected.joined },
+                { icon: <Eye size={16} />, label: 'User ID', value: selected.id },
+                { icon: <Eye size={16} />, label: 'Cases Filed', value: selected.cases },
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-sm">
+                  <span className="text-primary mt-xs">{item.icon}</span>
+                  <div>
+                    <p className="text-label-sm text-on-surface-variant">{item.label}</p>
+                    <p className="text-body-sm text-on-surface font-medium">{item.value}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="flex gap-md justify-end">
+              <button onClick={() => setSelected(null)} className="px-lg py-sm rounded-lg border border-outline-variant text-body-md hover:bg-surface-container transition-colors">Close</button>
+              {selected.status !== 'Suspended' ? (
+                <button className="px-lg py-sm rounded-lg bg-red-500 text-white text-body-md hover:bg-red-600 transition-colors">Suspend User</button>
+              ) : (
+                <button className="px-lg py-sm rounded-lg bg-green-600 text-white text-body-md hover:bg-green-700 transition-colors">Reinstate User</button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default ManageUsers;
