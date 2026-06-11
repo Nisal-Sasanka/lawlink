@@ -41,4 +41,13 @@ return (
         <h1 className="text-headline-lg text-on-surface">Consultation Chat</h1>
         <p className="text-body-md text-on-surface-variant mt-xs">Direct communication with your assigned lawyer for case CMP-001.</p>
       </div>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-xl">
+        {/* Sidebar Info */}
+        <div className="space-y-lg">
+          {/* Lawyer Card */}
+          <div className="bg-white border border-surface-container-high rounded-2xl p-lg shadow-card">
+            <h3 className="text-label-md text-on-surface-variant mb-md">Your Lawyer</h3>
+            <div className="flex items-center gap-md mb-lg">
+              <div className="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-label-sm font-bold text-on-primary-container">PN</div>
+              <div>
 
