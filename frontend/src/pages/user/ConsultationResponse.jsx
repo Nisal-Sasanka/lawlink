@@ -35,4 +35,10 @@ const ConsultationResponse = () => {
     }]);
     setMsg('');
   };
+return (
+    <div className="w-full max-w-4xl mx-auto">
+      <div className="mb-xl">
+        <h1 className="text-headline-lg text-on-surface">Consultation Chat</h1>
+        <p className="text-body-md text-on-surface-variant mt-xs">Direct communication with your assigned lawyer for case CMP-001.</p>
+      </div>
 
