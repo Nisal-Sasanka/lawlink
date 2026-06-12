@@ -53,3 +53,12 @@ return (
                 </button>
               ))}
             </div>
+            <form onSubmit={handlePay} className="space-y-md">
+              {method === 'card' && (
+                <>
+                  <div>
+                    <label className="text-label-sm text-on-surface-variant mb-xs block">Cardholder Name</label>
+                    <input type="text" placeholder="Name as on card" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })}
+                      className="w-full border border-outline-variant rounded-lg p-md text-body-md focus:outline-none focus:border-primary" required />
+                  </div>
+                  <div>
