@@ -80,3 +80,13 @@ return (
                       <input type="password" placeholder="•••" maxLength={4} value={form.cvv} onChange={e => setForm({ ...form, cvv: e.target.value })}
                         className="w-full border border-outline-variant rounded-lg p-md text-body-md focus:outline-none focus:border-primary" required />
                     </div>
+                  </div>
+                </>
+              )}
+              {method === 'upi' && (
+                <div>
+                  <label className="text-label-sm text-on-surface-variant mb-xs block">UPI ID</label>
+                  <input type="text" placeholder="yourname@upi" value={form.upi} onChange={e => setForm({ ...form, upi: e.target.value })}
+                    className="w-full border border-outline-variant rounded-lg p-md text-body-md focus:outline-none focus:border-primary" required />
+                  <p className="text-body-sm text-on-surface-variant mt-xs">e.g., yourname@okaxis, yourname@paytm</p>
+                </div>
