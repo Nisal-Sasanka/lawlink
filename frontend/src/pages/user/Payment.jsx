@@ -133,3 +133,15 @@ return (
                 <span>-₹360</span>
               </div>
               <div className="border-t border-surface-container-high pt-sm flex justify-between text-headline-sm font-bold">
+                <span>Total</span>
+                <span className="text-primary">₹1,999</span>
+              </div>
+            </div>
+          </div>
+          <div className="bg-primary/5 border border-primary/20 rounded-xl p-lg">
+            <p className="text-label-md text-primary mb-sm">✅ What's Included</p>
+            <ul className="text-body-sm text-on-surface-variant space-y-xs">
+              <li>• Unlimited consultations (30 days)</li>
+              <li>• Court representation (3 hearings)</li>
+              <li>• Priority support</li>
+              <li>• Full document review</li>
