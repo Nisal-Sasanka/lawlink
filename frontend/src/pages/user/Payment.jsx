@@ -100,3 +100,14 @@ return (
                   </select>
                 </div>
               )}
+              <button type="submit"
+                className="w-full flex items-center justify-center gap-sm py-md rounded-xl bg-primary text-on-primary text-body-lg font-semibold hover:opacity-90 transition-opacity mt-lg">
+                <Lock size={18} /> Pay ₹1,999 Securely <ArrowRight size={18} />
+              </button>
+
+              <p className="text-body-sm text-on-surface-variant text-center flex items-center justify-center gap-xs">
+                <Lock size={12} /> 256-bit SSL encrypted. Your details are secure.
+              </p>
+            </form>
+          </div>
+        </div>
