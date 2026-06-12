@@ -122,3 +122,14 @@ return (
               </div>
               <div className="flex justify-between text-body-md">
                 <span className="text-on-surface-variant">Base Price</span>
+<span>₹1,999</span>
+              </div>
+              <div className="flex justify-between text-body-md">
+                <span className="text-on-surface-variant">GST (18%)</span>
+                <span>₹360</span>
+              </div>
+              <div className="flex justify-between text-body-md text-green-600">
+                <span>Discount</span>
+                <span>-₹360</span>
+              </div>
+              <div className="border-t border-surface-container-high pt-sm flex justify-between text-headline-sm font-bold">
