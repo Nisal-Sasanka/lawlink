@@ -18,3 +18,8 @@ const Review = () => {
         <p className="text-body-lg text-on-surface-variant mb-xl">
           Your case has been successfully submitted. A lawyer will be assigned to your case within 24 hours. You will receive a notification once assigned.
         </p>
+<div className="bg-white border border-surface-container-high rounded-xl p-xl w-full text-left shadow-card mb-xl">
+          <div className="flex items-center justify-between mb-md">
+            <span className="text-label-md text-on-surface-variant">Case Reference ID</span>
+            <span className="text-label-md font-bold text-primary bg-primary/10 px-md py-xs rounded">CMP-2024-00847</span>
+          </div>
