@@ -87,3 +87,15 @@ return (
         <CheckCircle size={20} className="text-primary" />
         <p className="text-body-md text-primary font-medium">Step 4 of 4 — Final Review. Everything looks good!</p>
       </div>
+      <div className="space-y-lg mb-xl">
+        {sections.map((section, i) => (
+          <div key={i} className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card">
+            <div className="flex items-center justify-between mb-lg">
+              <div className="flex items-center gap-sm">
+                {section.icon}
+                <h3 className="text-headline-sm text-on-surface">{section.title}</h3>
+              </div>
+              <button className="flex items-center gap-xs text-body-sm text-primary hover:underline">
+                <Edit2 size={14} /> Edit
+              </button>
+            </div>
