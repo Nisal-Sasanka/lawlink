@@ -69,3 +69,10 @@ return (
                         className="w-full pl-10 pr-md border border-outline-variant rounded-lg p-md text-body-md focus:outline-none focus:border-primary" required />
                     </div>
                   </div>
+<div className="grid grid-cols-2 gap-md">
+                    <div>
+                      <label className="text-label-sm text-on-surface-variant mb-xs block">Expiry Date</label>
+                      <input type="text" placeholder="MM / YY" maxLength={7} value={form.expiry} onChange={e => setForm({ ...form, expiry: e.target.value })}
+                        className="w-full border border-outline-variant rounded-lg p-md text-body-md focus:outline-none focus:border-primary" required />
+                    </div>
+                    <div>
