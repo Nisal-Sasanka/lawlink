@@ -129,3 +129,8 @@ return (
           onClick={handleSubmit}
           className="px-2xl py-md rounded-xl bg-primary text-on-primary text-body-lg font-semibold hover:opacity-90 transition-opacity"
         >
+          Submit Case
+        </button>
+      </div>
+    </div>
+  );
