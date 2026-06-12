@@ -111,3 +111,13 @@ return (
         ))}
       </div>
 
+      <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card mb-xl">
+        <label className="flex items-start gap-md cursor-pointer">
+          <input type="checkbox" className="mt-xs accent-primary" required />
+          <span className="text-body-md text-on-surface-variant">
+            I confirm that all the information provided is accurate and I agree to the{' '}
+            <span className="text-primary underline cursor-pointer">Terms of Service</span> and{' '}
+            <span className="text-primary underline cursor-pointer">Privacy Policy</span> of LawLink.
+          </span>
+        </label>
+      </div>
