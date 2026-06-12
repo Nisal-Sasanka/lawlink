@@ -76,3 +76,7 @@ return (
                         className="w-full border border-outline-variant rounded-lg p-md text-body-md focus:outline-none focus:border-primary" required />
                     </div>
                     <div>
+                      <label className="text-label-sm text-on-surface-variant mb-xs block">CVV</label>
+                      <input type="password" placeholder="•••" maxLength={4} value={form.cvv} onChange={e => setForm({ ...form, cvv: e.target.value })}
+                        className="w-full border border-outline-variant rounded-lg p-md text-body-md focus:outline-none focus:border-primary" required />
+                    </div>
