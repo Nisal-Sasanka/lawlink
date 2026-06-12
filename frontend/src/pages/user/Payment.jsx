@@ -145,3 +145,12 @@ return (
               <li>• Court representation (3 hearings)</li>
               <li>• Priority support</li>
               <li>• Full document review</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Payment;
