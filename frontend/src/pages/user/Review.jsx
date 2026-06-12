@@ -99,3 +99,15 @@ return (
                 <Edit2 size={14} /> Edit
               </button>
             </div>
+            <div className="space-y-md">
+              {section.items.map((item, j) => (
+                <div key={j} className="flex flex-col sm:flex-row sm:items-start gap-xs">
+                  <span className="text-label-sm text-on-surface-variant min-w-[160px]">{item.label}</span>
+                  <span className="text-body-md text-on-surface flex-1">{item.value}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
