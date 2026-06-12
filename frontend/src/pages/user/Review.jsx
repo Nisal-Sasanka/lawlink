@@ -121,3 +121,11 @@ return (
           </span>
         </label>
       </div>
+      <div className="flex gap-md justify-end">
+        <button onClick={() => navigate('/user/upload')} className="px-xl py-md rounded-xl border border-outline-variant text-body-md hover:bg-surface-container transition-colors">
+          Back
+        </button>
+        <button
+          onClick={handleSubmit}
+          className="px-2xl py-md rounded-xl bg-primary text-on-primary text-body-lg font-semibold hover:opacity-90 transition-opacity"
+        >
