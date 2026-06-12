@@ -83,3 +83,7 @@ return (
         <h1 className="text-headline-lg text-on-surface">Review & Submit</h1>
         <p className="text-body-md text-on-surface-variant mt-xs">Please review all the details below before submitting your case.</p>
       </div>
+      <div className="bg-primary/5 border border-primary/20 rounded-xl p-lg mb-xl flex items-center gap-md">
+        <CheckCircle size={20} className="text-primary" />
+        <p className="text-body-md text-primary font-medium">Step 4 of 4 — Final Review. Everything looks good!</p>
+      </div>
