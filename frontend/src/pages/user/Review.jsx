@@ -47,5 +47,15 @@ const Review = () => {
       ],
     },
     {
+      icon: <Briefcase size={20} className="text-primary" />,
+      title: 'Case Details',
+      items: [
+        { label: 'Category', value: 'Civil Law' },
+        { label: 'Title', value: 'Property Dispute with Neighbor' },
+        { label: 'Priority', value: 'High' },
+        { label: 'Description', value: 'I am facing a property boundary dispute with my neighbor who has encroached on my land. Need legal advice urgently.' },
+      ],
+    },
+    {
 
           
