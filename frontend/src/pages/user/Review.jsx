@@ -58,4 +58,13 @@ const Review = () => {
     },
     {
 
-          
+                icon: <CreditCard size={20} className="text-primary" />,
+      title: 'Payment',
+      items: [
+        { label: 'Package', value: 'Standard Representation' },
+        { label: 'Amount Paid', value: '₹1,999' },
+        { label: 'Transaction ID', value: 'TXN-2024-LLK-00842' },
+      ],
+    },
+    {
+
