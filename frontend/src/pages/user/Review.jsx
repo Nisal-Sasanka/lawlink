@@ -23,3 +23,11 @@ const Review = () => {
             <span className="text-label-md text-on-surface-variant">Case Reference ID</span>
             <span className="text-label-md font-bold text-primary bg-primary/10 px-md py-xs rounded">CMP-2024-00847</span>
           </div>
+          <div className="space-y-sm text-body-sm text-on-surface-variant">
+            <div className="flex justify-between"><span>Status</span><span className="text-blue-600 font-medium">Open — Awaiting Assignment</span></div>
+            <div className="flex justify-between"><span>Package</span><span className="font-medium text-on-surface">Standard Representation</span></div>
+            <div className="flex justify-between"><span>Submitted</span><span className="font-medium text-on-surface">Jun 08, 2024</span></div>
+          </div>
+        </div>
+        <button onClick={() => navigate('/user')} className="px-2xl py-md rounded-xl bg-primary text-on-primary text-body-lg font-semibold hover:opacity-90 transition-opacity">
+          Go to Dashboard
