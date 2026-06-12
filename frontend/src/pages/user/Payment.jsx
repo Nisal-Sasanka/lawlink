@@ -32,3 +32,11 @@ return (
         <h1 className="text-headline-lg text-on-surface">Secure Payment</h1>
         <p className="text-body-md text-on-surface-variant mt-xs">Complete your payment to activate your legal package.</p>
       </div>
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-xl">
+        {/* Payment Form */}
+        <div className="lg:col-span-3">
+          <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card">
+            {/* Method Toggle */}
+            <div className="flex gap-sm mb-xl">
+              {[
+                { id: 'card', label: '💳 Card' },
