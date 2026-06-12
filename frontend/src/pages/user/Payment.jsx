@@ -6,3 +6,8 @@ const Payment = () => {
   const [method, setMethod] = useState('card');
   const [paid, setPaid] = useState(false);
   const [form, setForm] = useState({ name: '', card: '', expiry: '', cvv: '', upi: '' });
+  const handlePay = (e) => {
+    e.preventDefault();
+    setPaid(true);
+    setTimeout(() => navigate('/user/upload'), 2000);
+  };
