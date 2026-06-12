@@ -8,3 +8,7 @@ const Review = () => {
   const handleSubmit = () => {
     setSubmitted(true);
   };
+  if (submitted) {
+    return (
+      <div className="w-full max-w-lg mx-auto flex flex-col items-center text-center py-3xl">
+        <div className="w-24 h-24 rounded-full bg-green-100 flex items-center justify-center mb-xl animate-bounce">
