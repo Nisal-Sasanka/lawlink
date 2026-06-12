@@ -67,4 +67,13 @@ const Review = () => {
       ],
     },
     {
+      icon: <FileText size={20} className="text-primary" />,
+      title: 'Documents',
+      items: [
+        { label: 'ID Proof', value: 'aadhaar_card.pdf ✅' },
+        { label: 'Complaint', value: 'complaint_letter.pdf ✅' },
+        { label: 'Evidence', value: 'property_photos.jpg ✅' },
+      ],
+    },
+  ];
 
