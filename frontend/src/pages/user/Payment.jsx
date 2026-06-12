@@ -40,3 +40,16 @@ return (
             <div className="flex gap-sm mb-xl">
               {[
                 { id: 'card', label: '💳 Card' },
+                { id: 'upi', label: '📱 UPI' },
+                { id: 'netbanking', label: '🏦 Net Banking' },
+              ].map(m => (
+                <button
+                  key={m.id}
+                  onClick={() => setMethod(m.id)}
+                  className={`flex-1 py-sm rounded-lg text-label-sm font-semibold transition-colors
+                    ${method === m.id ? 'bg-primary text-on-primary' : 'bg-surface-container text-on-surface-variant hover:bg-surface-container-high'}`}
+                >
+                  {m.label}
+                </button>
+              ))}
+            </div>
