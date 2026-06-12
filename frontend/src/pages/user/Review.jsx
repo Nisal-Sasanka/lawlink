@@ -30,4 +30,14 @@ const Review = () => {
           </div>
         </div>
         <button onClick={() => navigate('/user')} className="px-2xl py-md rounded-xl bg-primary text-on-primary text-body-lg font-semibold hover:opacity-90 transition-opacity">
-          Go to Dashboard
+          Go to Dashboard    
+        </button>
+      </div>
+    );
+  }
+
+  const sections = [
+    {
+      icon: <User size={20} className="text-primary" />,
+
+          
