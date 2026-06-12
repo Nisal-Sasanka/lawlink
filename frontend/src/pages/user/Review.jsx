@@ -77,3 +77,9 @@ const Review = () => {
     },
   ];
 
+return (
+    <div className="w-full max-w-3xl mx-auto">
+      <div className="mb-xl">
+        <h1 className="text-headline-lg text-on-surface">Review & Submit</h1>
+        <p className="text-body-md text-on-surface-variant mt-xs">Please review all the details below before submitting your case.</p>
+      </div>
