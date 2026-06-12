@@ -39,5 +39,13 @@ const Review = () => {
   const sections = [
     {
       icon: <User size={20} className="text-primary" />,
+      title: 'Your Information',
+      items: [
+        { label: 'Full Name', value: 'John Doe' },
+        { label: 'Email', value: 'john.doe@email.com' },
+        { label: 'Phone', value: '+91 98765 43210' },
+      ],
+    },
+    {
 
           
