@@ -90,3 +90,13 @@ return (
                     className="w-full border border-outline-variant rounded-lg p-md text-body-md focus:outline-none focus:border-primary" required />
                   <p className="text-body-sm text-on-surface-variant mt-xs">e.g., yourname@okaxis, yourname@paytm</p>
                 </div>
+              )}
+              {method === 'netbanking' && (
+                <div>
+                  <label className="text-label-sm text-on-surface-variant mb-xs block">Select Your Bank</label>
+                  <select className="w-full border border-outline-variant rounded-lg p-md text-body-md focus:outline-none focus:border-primary" required>
+                    <option value="">Choose a bank...</option>
+                    {['SBI', 'HDFC', 'ICICI', 'Axis', 'Kotak', 'Bank of Baroda', 'Punjab National Bank'].map(b => <option key={b}>{b}</option>)}
+                  </select>
+                </div>
+              )}
