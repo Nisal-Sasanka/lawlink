@@ -62,3 +62,10 @@ return (
                       className="w-full border border-outline-variant rounded-lg p-md text-body-md focus:outline-none focus:border-primary" required />
                   </div>
                   <div>
+                    <label className="text-label-sm text-on-surface-variant mb-xs block">Card Number</label>
+                    <div className="relative">
+                      <CreditCard size={18} className="absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant" />
+                      <input type="text" placeholder="1234 5678 9012 3456" maxLength={19} value={form.card} onChange={e => setForm({ ...form, card: e.target.value })}
+                        className="w-full pl-10 pr-md border border-outline-variant rounded-lg p-md text-body-md focus:outline-none focus:border-primary" required />
+                    </div>
+                  </div>
