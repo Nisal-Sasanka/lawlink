@@ -15,3 +15,14 @@ const Payment = () => {
     return (
       <div className="w-full max-w-lg mx-auto flex flex-col items-center justify-center py-3xl text-center">
         <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mb-xl animate-pulse">
+<CheckCircle size={48} className="text-green-600" />
+        </div>
+        <h2 className="text-headline-lg text-on-surface mb-md">Payment Successful!</h2>
+        <p className="text-body-lg text-on-surface-variant mb-xl">Your payment of <strong>₹1,999</strong> was received. You'll be redirected shortly...</p>
+        <div className="bg-green-50 border border-green-200 rounded-xl p-lg w-full text-left">
+          <p className="text-label-md text-green-700">Transaction ID: TXN-2024-LLK-00842</p>
+          <p className="text-body-sm text-green-600 mt-xs">Standard Representation Package — Jun 08, 2024</p>
+        </div>
+      </div>
+    );
+  }
