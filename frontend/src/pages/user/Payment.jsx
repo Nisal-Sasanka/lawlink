@@ -111,3 +111,14 @@ return (
             </form>
           </div>
         </div>
+        {/* Order Summary */}
+        <div className="lg:col-span-2">
+          <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card mb-lg">
+            <h3 className="text-headline-sm text-on-surface mb-lg">Order Summary</h3>
+            <div className="space-y-sm">
+              <div className="flex justify-between text-body-md">
+                <span className="text-on-surface-variant">Package</span>
+                <span className="font-semibold text-on-surface">Standard</span>
+              </div>
+              <div className="flex justify-between text-body-md">
+                <span className="text-on-surface-variant">Base Price</span>
