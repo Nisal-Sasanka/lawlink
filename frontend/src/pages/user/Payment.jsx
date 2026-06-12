@@ -26,3 +26,9 @@ const Payment = () => {
       </div>
     );
   }
+return (
+    <div className="w-full max-w-3xl mx-auto">
+      <div className="mb-xl">
+        <h1 className="text-headline-lg text-on-surface">Secure Payment</h1>
+        <p className="text-body-md text-on-surface-variant mt-xs">Complete your payment to activate your legal package.</p>
+      </div>
