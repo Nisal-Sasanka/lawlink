@@ -95,3 +95,25 @@ return (
                 <span key={lang} className="text-label-sm bg-surface-container text-on-surface-variant px-sm py-xs rounded">{lang}</span>
               ))}
             </div>
+            {/* Stats */}
+            <div className="flex items-center justify-between pt-md border-t border-surface-container-high mb-lg">
+              <div className="text-center">
+                <p className="text-label-sm text-on-surface-variant">Rating</p>
+                <div className="flex items-center gap-xs text-yellow-500 mt-xs">
+                  <Star size={14} fill="currentColor" />
+                  <span className="text-body-md font-bold text-on-surface">{l.rating}</span>
+                </div>
+              </div>
+              <div className="text-center">
+                <p className="text-label-sm text-on-surface-variant">Cases</p>
+                <p className="text-body-md font-bold text-on-surface mt-xs">{l.cases}</p>
+              </div>
+              <div className="text-center">
+                <p className="text-label-sm text-on-surface-variant">Reviews</p>
+                <p className="text-body-md font-bold text-on-surface mt-xs">{l.reviews}</p>
+              </div>
+              <div className="text-center">
+                <p className="text-label-sm text-on-surface-variant">Fee</p>
+                <p className="text-body-sm font-bold text-primary mt-xs">{l.fee}</p>
+              </div>
+            </div>
