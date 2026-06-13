@@ -77,4 +77,13 @@ return (
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-start justify-between gap-xs">
+                  <h3 className="text-headline-sm text-on-surface truncate">{l.name}</h3>
+                  <div className={`w-2.5 h-2.5 rounded-full shrink-0 mt-1.5 ${l.available ? 'bg-green-500' : 'bg-gray-300'}`} title={l.available ? 'Available' : 'Unavailable'} />
+                </div>
+                <p className="text-body-sm font-semibold text-primary">{l.spec}</p>
+                <div className="flex items-center gap-xs mt-xs text-body-sm text-on-surface-variant">
+                  <MapPin size={12} /> {l.location} • {l.experience}
+                </div>
+              </div>
+            </div>
 
