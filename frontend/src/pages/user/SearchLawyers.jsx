@@ -63,4 +63,7 @@ return (
           </div>
         </div>
       </div>
+            {/* Results count */}
+      <p className="text-body-md text-on-surface-variant mb-lg">{filtered.length} lawyers found</p>
+
 
