@@ -117,3 +117,7 @@ return (
                 <p className="text-body-sm font-bold text-primary mt-xs">{l.fee}</p>
               </div>
             </div>
+            {/* Buttons */}
+            <div className="flex gap-sm">
+              <button onClick={() => setSelected(l)} className="flex-1 py-sm rounded-xl border border-outline-variant text-body-sm font-semibold hover:bg-surface-container transition-colors">
+                View Profile
