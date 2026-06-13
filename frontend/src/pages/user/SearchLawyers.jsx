@@ -142,3 +142,14 @@ return (
                 {selected.avatar}
               </div>
               <div>
+                <h2 className="text-headline-sm text-on-surface">{selected.name}</h2>
+                <p className="text-body-md text-primary font-semibold">{selected.spec}</p>
+                <div className="flex items-center gap-xs text-on-surface-variant text-body-sm mt-xs">
+                  <MapPin size={14} /> {selected.location}
+                </div>
+                <div className={`flex items-center gap-xs mt-xs text-body-sm ${selected.available ? 'text-green-600' : 'text-gray-500'}`}>
+                  <div className={`w-2 h-2 rounded-full ${selected.available ? 'bg-green-500' : 'bg-gray-400'}`} />
+                  {selected.available ? 'Available for new cases' : 'Not available'}
+                </div>
+              </div>
+            </div>
