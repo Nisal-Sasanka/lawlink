@@ -46,4 +46,14 @@ return (
             />
           </div>
 
+          {/* Spec Pills */}
+          <div className="flex items-center gap-sm flex-wrap">
+            <Filter size={16} className="text-on-surface-variant shrink-0" />
+            {specializations.map(s => (
+              <button key={s} onClick={() => setSpecFilter(s)}
+                className={`px-md py-xs rounded-full text-label-sm font-semibold transition-colors
+                  ${specFilter === s ? 'bg-primary text-on-primary' : 'bg-surface-container text-on-surface-variant hover:bg-surface-container-high'}`}>
+                {s}
+              </button>
+            ))}
 
