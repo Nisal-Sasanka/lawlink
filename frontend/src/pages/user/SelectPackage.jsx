@@ -20,4 +20,22 @@ const packages = [
     recommended: false,
   },
   {
+    id: 'standard',
+    name: 'Standard Representation',
+    price: '₹1,999',
+    period: 'per case',
+    description: 'Full legal representation for most civil and family matters.',
+    features: [
+      'Unlimited consultations (30 days)',
+      'Full document review',
+      'Court representation (up to 3 hearings)',
+      'Priority email & phone support',
+      'Case strategy planning session',
+    ],
+    icon: <Zap size={32} className="text-primary" />,
+    color: 'border-primary',
+    badge: 'Most Popular',
+    recommended: true,
+  },
+  {
 
