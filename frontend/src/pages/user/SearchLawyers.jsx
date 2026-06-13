@@ -153,3 +153,14 @@ return (
                 </div>
               </div>
             </div>
+            <p className="text-body-md text-on-surface-variant leading-relaxed mb-xl">{selected.bio}</p>
+
+            <div className="grid grid-cols-2 gap-md mb-xl">
+              {[
+                { label: 'Experience', value: selected.experience },
+                { label: 'Cases Handled', value: selected.cases },
+                { label: 'Rating', value: `${selected.rating} ⭐ (${selected.reviews} reviews)` },
+                { label: 'Consultation Fee', value: selected.fee },
+                { label: 'Languages', value: selected.languages.join(', ') },
+              ].map((item, i) => (
+                <div key={i} className={i === 4 ? 'col-span-2' : ''}>
