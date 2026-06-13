@@ -83,3 +83,14 @@ const SelectPackage = () => {
                 {pkg.badge}
               </div>
             )}
+<div className="flex justify-between items-start mb-lg">
+              <div>{pkg.icon}</div>
+              {selected === pkg.id && (
+                <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+                  <Check size={14} className="text-on-primary" />
+                </div>
+              )}
+            </div>
+
+            <h3 className="text-headline-sm text-on-surface mb-xs">{pkg.name}</h3>
+            <p className="text-body-sm text-on-surface-variant mb-lg">{pkg.description}</p>
