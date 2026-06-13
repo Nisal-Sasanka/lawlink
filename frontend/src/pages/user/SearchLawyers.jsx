@@ -70,4 +70,11 @@ return (
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-lg">
         {filtered.map(l => (
           <div key={l.id} className="bg-white border border-surface-container-high rounded-2xl p-xl shadow-card hover:shadow-lg transition-all hover:-translate-y-0.5">
+            {/* Top */}
+            <div className="flex items-start gap-md mb-lg">
+              <div className="w-14 h-14 rounded-full bg-primary-container flex items-center justify-center text-headline-sm font-bold text-on-primary-container shrink-0">
+                {l.avatar}
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-start justify-between gap-xs">
 
