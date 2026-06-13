@@ -36,5 +36,14 @@ return (
       <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card mb-xl">
         <div className="flex flex-col gap-lg">
 
-      
+                {/* Search Bar */}
+          <div className="relative">
+            <Search size={18} className="absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant" />
+            <input
+              type="text" placeholder="Search by name, specialization, or city..."
+              value={search} onChange={e => setSearch(e.target.value)}
+              className="w-full pl-12 pr-md py-md border border-outline-variant rounded-xl text-body-md focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all"
+            />
+          </div>
+
 
