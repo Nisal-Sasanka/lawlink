@@ -121,3 +121,15 @@ return (
             <div className="flex gap-sm">
               <button onClick={() => setSelected(l)} className="flex-1 py-sm rounded-xl border border-outline-variant text-body-sm font-semibold hover:bg-surface-container transition-colors">
                 View Profile
+              </button>
+              <button
+                disabled={!l.available}
+                onClick={() => navigate('/user/packages')}
+                className={`flex-1 py-sm rounded-xl text-body-sm font-semibold transition-all flex items-center justify-center gap-xs
+                  ${l.available ? 'bg-primary text-on-primary hover:opacity-90' : 'bg-surface-container-high text-on-surface-variant cursor-not-allowed'}`}>
+                {l.available ? <><CheckCircle size={14} /> Hire Now</> : 'Unavailable'}
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
