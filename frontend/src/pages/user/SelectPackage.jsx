@@ -39,3 +39,13 @@ const packages = [
   },
   {
 
+    id: 'premium',
+    name: 'Premium Full Service',
+    price: '₹4,999',
+    period: 'per case',
+    description: 'Comprehensive legal support for complex, long-running cases.',
+    features: [
+      'Dedicated senior lawyer assigned',
+      'Unlimited consultations (90 days)',
+      'Full document drafting & review',
+      'Unlimited court representations',
