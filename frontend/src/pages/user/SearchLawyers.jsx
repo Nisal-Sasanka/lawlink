@@ -66,4 +66,8 @@ return (
             {/* Results count */}
       <p className="text-body-md text-on-surface-variant mb-lg">{filtered.length} lawyers found</p>
 
+      {/* Lawyer Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-lg">
+        {filtered.map(l => (
+          <div key={l.id} className="bg-white border border-surface-container-high rounded-2xl p-xl shadow-card hover:shadow-lg transition-all hover:-translate-y-0.5">
 
