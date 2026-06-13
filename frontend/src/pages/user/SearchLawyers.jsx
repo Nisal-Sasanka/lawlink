@@ -25,4 +25,11 @@ const filtered = lawyers.filter(l => {
     const matchAvail = !availOnly || l.available;
     return matchSearch && matchSpec && matchAvail;
   });
+return (
+    <div className="w-full">
+      {/* Header */}
+      <div className="mb-xl">
+        <h1 className="text-headline-lg text-on-surface">Find a Lawyer</h1>
+        <p className="text-body-md text-on-surface-variant mt-xs">Browse verified legal professionals across India. All lawyers are Bar Council registered.</p>
+      </div>
 
