@@ -121,3 +121,12 @@ const SelectPackage = () => {
             className="flex items-center gap-sm px-2xl py-md rounded-xl bg-primary text-on-primary text-body-lg font-semibold hover:opacity-90 transition-opacity"
           >
             Continue to Payment <ArrowRight size={20} />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default SelectPackage;
+
