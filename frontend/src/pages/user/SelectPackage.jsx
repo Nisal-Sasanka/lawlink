@@ -59,3 +59,13 @@ const packages = [
     recommended: false,
   },
 ];
+const SelectPackage = () => {
+  const [selected, setSelected] = useState('standard');
+  const navigate = useNavigate();
+
+  return (
+    <div className="w-full max-w-5xl mx-auto">
+      <div className="text-center mb-2xl">
+        <h1 className="text-headline-lg text-on-surface">Choose a Legal Package</h1>
+        <p className="text-body-lg text-on-surface-variant mt-md">Select the package that best fits your legal needs. All packages include access to verified, experienced lawyers.</p>
+      </div>
