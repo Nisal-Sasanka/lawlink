@@ -89,3 +89,9 @@ return (
 
             {/* Bio */}
             <p className="text-body-sm text-on-surface-variant mb-lg line-clamp-2 leading-relaxed">{l.bio}</p>
+            {/* Languages */}
+            <div className="flex gap-xs flex-wrap mb-lg">
+              {l.languages.map(lang => (
+                <span key={lang} className="text-label-sm bg-surface-container text-on-surface-variant px-sm py-xs rounded">{lang}</span>
+              ))}
+            </div>
