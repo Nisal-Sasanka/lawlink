@@ -17,3 +17,12 @@ const SearchLawyers = () => {
   const [specFilter, setSpecFilter] = useState('All');
   const [availOnly, setAvailOnly] = useState(false);
   const [selected, setSelected] = useState(null);
+const filtered = lawyers.filter(l => {
+    const matchSearch = l.name.toLowerCase().includes(search.toLowerCase()) ||
+      l.spec.toLowerCase().includes(search.toLowerCase()) ||
+      l.location.toLowerCase().includes(search.toLowerCase());
+    const matchSpec = specFilter === 'All' || l.spec === specFilter;
+    const matchAvail = !availOnly || l.available;
+    return matchSearch && matchSpec && matchAvail;
+  });
+
