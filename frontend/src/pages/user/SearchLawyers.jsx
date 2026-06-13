@@ -87,3 +87,5 @@ return (
               </div>
             </div>
 
+            {/* Bio */}
+            <p className="text-body-sm text-on-surface-variant mb-lg line-clamp-2 leading-relaxed">{l.bio}</p>
