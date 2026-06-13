@@ -56,4 +56,11 @@ return (
                 {s}
               </button>
             ))}
+            <label className="flex items-center gap-xs cursor-pointer ml-auto">
+              <input type="checkbox" checked={availOnly} onChange={e => setAvailOnly(e.target.checked)} className="accent-primary" />
+              <span className="text-body-sm text-on-surface-variant">Available Only</span>
+            </label>
+          </div>
+        </div>
+      </div>
 
