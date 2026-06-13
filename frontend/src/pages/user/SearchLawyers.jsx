@@ -164,3 +164,8 @@ return (
                 { label: 'Languages', value: selected.languages.join(', ') },
               ].map((item, i) => (
                 <div key={i} className={i === 4 ? 'col-span-2' : ''}>
+                  <p className="text-label-sm text-on-surface-variant">{item.label}</p>
+                  <p className="text-body-md text-on-surface font-medium mt-xs">{item.value}</p>
+                </div>
+              ))}
+            </div>
