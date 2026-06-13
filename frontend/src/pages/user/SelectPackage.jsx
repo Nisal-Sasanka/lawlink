@@ -94,3 +94,7 @@ const SelectPackage = () => {
 
             <h3 className="text-headline-sm text-on-surface mb-xs">{pkg.name}</h3>
             <p className="text-body-sm text-on-surface-variant mb-lg">{pkg.description}</p>
+<div className="mb-lg">
+              <span className="text-display text-primary font-bold">{pkg.price}</span>
+              <span className="text-body-sm text-on-surface-variant ml-xs">{pkg.period}</span>
+            </div>
