@@ -98,3 +98,14 @@ const SelectPackage = () => {
               <span className="text-display text-primary font-bold">{pkg.price}</span>
               <span className="text-body-sm text-on-surface-variant ml-xs">{pkg.period}</span>
             </div>
+            <ul className="space-y-sm">
+              {pkg.features.map((f, i) => (
+                <li key={i} className="flex items-start gap-sm text-body-sm text-on-surface">
+                  <Check size={16} className="text-green-500 mt-xs shrink-0" />
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
