@@ -109,3 +109,15 @@ const SelectPackage = () => {
           </div>
         ))}
       </div>
+      <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-lg">
+          <div>
+            <p className="text-label-md text-on-surface-variant">Selected Package</p>
+            <p className="text-headline-sm text-on-surface">{packages.find(p => p.id === selected)?.name}</p>
+            <p className="text-body-lg font-bold text-primary">{packages.find(p => p.id === selected)?.price} {packages.find(p => p.id === selected)?.period}</p>
+          </div>
+          <button
+            onClick={() => navigate('/user/payment')}
+            className="flex items-center gap-sm px-2xl py-md rounded-xl bg-primary text-on-primary text-body-lg font-semibold hover:opacity-90 transition-opacity"
+          >
+            Continue to Payment <ArrowRight size={20} />
