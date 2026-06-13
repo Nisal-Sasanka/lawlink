@@ -69,3 +69,17 @@ const SelectPackage = () => {
         <h1 className="text-headline-lg text-on-surface">Choose a Legal Package</h1>
         <p className="text-body-lg text-on-surface-variant mt-md">Select the package that best fits your legal needs. All packages include access to verified, experienced lawyers.</p>
       </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-lg mb-2xl">
+        {packages.map(pkg => (
+          <div
+            key={pkg.id}
+            onClick={() => setSelected(pkg.id)}
+            className={`relative bg-white rounded-2xl p-xl cursor-pointer transition-all duration-200 border-2 shadow-card hover:shadow-lg
+              ${selected === pkg.id ? `${pkg.color} shadow-lg scale-[1.02]` : 'border-surface-container-high'}`}
+          >
+            {pkg.badge && (
+              <div className={`absolute -top-3 left-1/2 -translate-x-1/2 px-md py-xs rounded-full text-label-sm font-bold
+                ${pkg.id === 'standard' ? 'bg-primary text-on-primary' : 'bg-yellow-400 text-yellow-900'}`}>
+                {pkg.badge}
+              </div>
+            )}
