@@ -49,3 +49,13 @@ const packages = [
       'Unlimited consultations (90 days)',
       'Full document drafting & review',
       'Unlimited court representations',
+      '24/7 WhatsApp support',
+      'Legal opinion letter',
+      'Post-case follow-up (30 days)',
+    ],
+    icon: <Star size={32} className="text-yellow-500" />,
+    color: 'border-yellow-400',
+    badge: 'Best Value',
+    recommended: false,
+  },
+];
