@@ -31,5 +31,10 @@ return (
       <div className="mb-xl">
         <h1 className="text-headline-lg text-on-surface">Find a Lawyer</h1>
         <p className="text-body-md text-on-surface-variant mt-xs">Browse verified legal professionals across India. All lawyers are Bar Council registered.</p>
-      </div>
+      </div>     
+      {/* Search & Filters */}
+      <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card mb-xl">
+        <div className="flex flex-col gap-lg">
+
+      
 
