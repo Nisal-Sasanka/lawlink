@@ -179,3 +179,14 @@ return (
                 className={`flex-1 py-sm rounded-xl text-body-md font-semibold transition-all
                   ${selected.available ? 'bg-primary text-on-primary hover:opacity-90' : 'bg-surface-container-high text-on-surface-variant cursor-not-allowed'}`}>
                 {selected.available ? 'Hire This Lawyer' : 'Unavailable'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default SearchLawyers;
+
