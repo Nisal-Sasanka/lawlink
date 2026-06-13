@@ -133,3 +133,12 @@ return (
           </div>
         ))}
       </div>
+      {/* Profile Modal */}
+      {selected && (
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-lg" onClick={() => setSelected(null)}>
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-xl max-h-[90vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
+            <div className="flex items-center gap-lg mb-xl">
+              <div className="w-20 h-20 rounded-full bg-primary-container flex items-center justify-center text-headline-md font-bold text-on-primary-container">
+                {selected.avatar}
+              </div>
+              <div>
