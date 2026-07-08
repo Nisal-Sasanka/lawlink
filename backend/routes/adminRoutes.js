@@ -1,4 +1,4 @@
-import express from "express";
+import expresss from "express";
 import {
   getAllUsers,
   getAllLawyersAdmin,
