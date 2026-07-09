@@ -1,6 +1,6 @@
 import express from "express";
 import {
-  getAllNotificationss,
+  getAllNotifications,
   createNotification,
 } from "../controllers/notificationController.js";
 
