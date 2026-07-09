@@ -1,6 +1,6 @@
 import db from "../config/db.js";
 
-export const getAllNotificationss = async (req, res) => {
+export const getAllNotifications = async (req, res) => {
   try {
     const result = await db.query("SELECT * FROM notifications");
     res.json(result.rows);
