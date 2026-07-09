@@ -1,6 +1,6 @@
 import db from "../config/db.js";
 
-export const registerUser = async (req, res) => {
+export const registerUsers = async (req, res) => {
   const { name, email, password, phone, address } = req.body;
 
   try {
