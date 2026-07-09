@@ -1,6 +1,6 @@
 import express from "express";
 import {
-  getAllConsultationss,
+  getAllConsultations,
   createConsultation,
 } from "../controllers/consultationController.js";
 
