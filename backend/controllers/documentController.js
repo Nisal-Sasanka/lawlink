@@ -1,6 +1,6 @@
 import db from "../config/db.js";
 
-export const uploadComplaintDocument = async (req, res) => {
+export const uploadComplaintDocuments = async (req, res) => {
   const { complaint_id } = req.body;
 
   try {
