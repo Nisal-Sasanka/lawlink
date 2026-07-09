@@ -1,6 +1,6 @@
 import express from "express";
 import {
-  getAllUserss,
+  getAllUsers,
   getAllLawyersAdmin,
   getAllComplaintsAdmin,
   approveLawyer,
