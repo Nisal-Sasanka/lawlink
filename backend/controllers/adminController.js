@@ -1,6 +1,6 @@
 import db from "../config/db.js";
 
-export const getAllUserss = async (req, res) => {
+export const getAllUsers = async (req, res) => {
   const result = await db.query("SELECT * FROM users");
   res.json(result.rows);
 };
