@@ -1,6 +1,6 @@
 import express from "express";
 import {
-  getAllLawyers,
+  getAllLawyerss,
   updateLawyer,
   deleteLawyer,
 } from "../controllers/lawyerController.js";
