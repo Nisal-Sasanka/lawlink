@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CheckCircle, User, Briefcase, CreditCard, FileText, Edit2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+
 const Review = () => {
   const navigate = useNavigate();
   const [submitted, setSubmitted] = useState(false);
@@ -8,17 +9,18 @@ const Review = () => {
   const handleSubmit = () => {
     setSubmitted(true);
   };
+
   if (submitted) {
     return (
       <div className="w-full max-w-lg mx-auto flex flex-col items-center text-center py-3xl">
         <div className="w-24 h-24 rounded-full bg-green-100 flex items-center justify-center mb-xl animate-bounce">
-<CheckCircle size={56} className="text-green-600" />
+          <CheckCircle size={56} className="text-green-600" />
         </div>
         <h2 className="text-headline-lg text-on-surface mb-md">Case Submitted!</h2>
         <p className="text-body-lg text-on-surface-variant mb-xl">
           Your case has been successfully submitted. A lawyer will be assigned to your case within 24 hours. You will receive a notification once assigned.
         </p>
-<div className="bg-white border border-surface-container-high rounded-xl p-xl w-full text-left shadow-card mb-xl">
+        <div className="bg-white border border-surface-container-high rounded-xl p-xl w-full text-left shadow-card mb-xl">
           <div className="flex items-center justify-between mb-md">
             <span className="text-label-md text-on-surface-variant">Case Reference ID</span>
             <span className="text-label-md font-bold text-primary bg-primary/10 px-md py-xs rounded">CMP-2024-00847</span>
@@ -30,7 +32,7 @@ const Review = () => {
           </div>
         </div>
         <button onClick={() => navigate('/user')} className="px-2xl py-md rounded-xl bg-primary text-on-primary text-body-lg font-semibold hover:opacity-90 transition-opacity">
-          Go to Dashboard    
+          Go to Dashboard
         </button>
       </div>
     );
@@ -57,8 +59,7 @@ const Review = () => {
       ],
     },
     {
-
-                icon: <CreditCard size={20} className="text-primary" />,
+      icon: <CreditCard size={20} className="text-primary" />,
       title: 'Payment',
       items: [
         { label: 'Package', value: 'Standard Representation' },
@@ -77,16 +78,18 @@ const Review = () => {
     },
   ];
 
-return (
+  return (
     <div className="w-full max-w-3xl mx-auto">
       <div className="mb-xl">
         <h1 className="text-headline-lg text-on-surface">Review & Submit</h1>
         <p className="text-body-md text-on-surface-variant mt-xs">Please review all the details below before submitting your case.</p>
       </div>
+
       <div className="bg-primary/5 border border-primary/20 rounded-xl p-lg mb-xl flex items-center gap-md">
         <CheckCircle size={20} className="text-primary" />
         <p className="text-body-md text-primary font-medium">Step 4 of 4 — Final Review. Everything looks good!</p>
       </div>
+
       <div className="space-y-lg mb-xl">
         {sections.map((section, i) => (
           <div key={i} className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card">
@@ -121,6 +124,7 @@ return (
           </span>
         </label>
       </div>
+
       <div className="flex gap-md justify-end">
         <button onClick={() => navigate('/user/upload')} className="px-xl py-md rounded-xl border border-outline-variant text-body-md hover:bg-surface-container transition-colors">
           Back
@@ -137,4 +141,3 @@ return (
 };
 
 export default Review;
-
