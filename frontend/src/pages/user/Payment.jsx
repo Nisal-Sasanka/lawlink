@@ -1,37 +1,108 @@
-import React, { useState } from 'react';
-import { CreditCard, Lock, CheckCircle, ArrowRight } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { CreditCard, Lock, CheckCircle, ArrowRight, Loader2 } from 'lucide-react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { getPackages } from '../../services/package.service';
+import { createNotification } from '../../services/notification.service';
+
 const Payment = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const packageId = searchParams.get('packageId');
+  const complaintId = searchParams.get('complaintId');
+  
   const [method, setMethod] = useState('card');
   const [paid, setPaid] = useState(false);
   const [form, setForm] = useState({ name: '', card: '', expiry: '', cvv: '', upi: '' });
-  const handlePay = (e) => {
+  const [pkg, setPkg] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPkg = async () => {
+      try {
+        const response = await getPackages();
+        if (response.success) {
+          const selectedPkg = response.data.find(p => p.id === packageId) || response.data[0];
+          setPkg(selectedPkg);
+        }
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchPkg();
+  }, [packageId]);
+
+  const handlePay = async (e) => {
     e.preventDefault();
     setPaid(true);
-    setTimeout(() => navigate('/user/upload'), 2000);
+
+    try {
+      await createNotification({
+        title: 'Payment Confirmed',
+        message: `Your payment of ${formatCurrency(pkg?.price)} for the ${pkg?.name} Package was successfully processed.`,
+        type: 'payment'
+      });
+    } catch (err) {
+      console.error('Failed to create payment notification', err);
+    }
+
+    setTimeout(() => {
+      if (complaintId) {
+        navigate(`/user/complaints/${complaintId}`);
+      } else {
+        navigate('/user');
+      }
+    }, 3000);
   };
+
+  const formatCurrency = (amount) => {
+    return new Intl.NumberFormat('en-LK', {
+      style: 'currency',
+      currency: 'LKR',
+      maximumFractionDigits: 0,
+    }).format(amount);
+  };
+
+  const formatDate = () => {
+    return new Intl.DateTimeFormat('en-LK', {
+      year: 'numeric',
+      month: 'short',
+      day: '2-digit',
+    }).format(new Date());
+  };
+
+  if (loading) return <div className="flex justify-center py-3xl"><Loader2 className="animate-spin text-primary" size={32} /></div>;
+
+
   if (paid) {
     return (
       <div className="w-full max-w-lg mx-auto flex flex-col items-center justify-center py-3xl text-center">
         <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mb-xl animate-pulse">
-<CheckCircle size={48} className="text-green-600" />
+          <CheckCircle size={48} className="text-green-600" />
         </div>
         <h2 className="text-headline-lg text-on-surface mb-md">Payment Successful!</h2>
-        <p className="text-body-lg text-on-surface-variant mb-xl">Your payment of <strong>₹1,999</strong> was received. You'll be redirected shortly...</p>
+        {complaintId && (
+          <div className="bg-primary/10 border border-primary/20 text-primary font-bold rounded-xl px-lg py-md mb-lg">
+            🎉 Your complaint was submitted successfully!
+          </div>
+        )}
+        <p className="text-body-lg text-on-surface-variant mb-xl">Your payment of <strong>{formatCurrency(pkg?.price)}</strong> was received. You'll be redirected shortly...</p>
         <div className="bg-green-50 border border-green-200 rounded-xl p-lg w-full text-left">
-          <p className="text-label-md text-green-700">Transaction ID: TXN-2024-LLK-00842</p>
-          <p className="text-body-sm text-green-600 mt-xs">Standard Representation Package — Jun 08, 2024</p>
+          <p className="text-label-md text-green-700">Transaction ID: TXN-{Date.now()}-LLK</p>
+          <p className="text-body-sm text-green-600 mt-xs">{pkg?.name} Package — {formatDate()}</p>
         </div>
       </div>
     );
   }
-return (
+
+  return (
     <div className="w-full max-w-3xl mx-auto">
       <div className="mb-xl">
         <h1 className="text-headline-lg text-on-surface">Secure Payment</h1>
         <p className="text-body-md text-on-surface-variant mt-xs">Complete your payment to activate your legal package.</p>
       </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-xl">
         {/* Payment Form */}
         <div className="lg:col-span-3">
@@ -53,6 +124,7 @@ return (
                 </button>
               ))}
             </div>
+
             <form onSubmit={handlePay} className="space-y-md">
               {method === 'card' && (
                 <>
@@ -69,7 +141,7 @@ return (
                         className="w-full pl-10 pr-md border border-outline-variant rounded-lg p-md text-body-md focus:outline-none focus:border-primary" required />
                     </div>
                   </div>
-<div className="grid grid-cols-2 gap-md">
+                  <div className="grid grid-cols-2 gap-md">
                     <div>
                       <label className="text-label-sm text-on-surface-variant mb-xs block">Expiry Date</label>
                       <input type="text" placeholder="MM / YY" maxLength={7} value={form.expiry} onChange={e => setForm({ ...form, expiry: e.target.value })}
@@ -100,9 +172,10 @@ return (
                   </select>
                 </div>
               )}
+
               <button type="submit"
                 className="w-full flex items-center justify-center gap-sm py-md rounded-xl bg-primary text-on-primary text-body-lg font-semibold hover:opacity-90 transition-opacity mt-lg">
-                <Lock size={18} /> Pay ₹1,999 Securely <ArrowRight size={18} />
+                <Lock size={18} /> Pay {formatCurrency(pkg?.price)} Securely <ArrowRight size={18} />
               </button>
 
               <p className="text-body-sm text-on-surface-variant text-center flex items-center justify-center gap-xs">
@@ -111,6 +184,7 @@ return (
             </form>
           </div>
         </div>
+
         {/* Order Summary */}
         <div className="lg:col-span-2">
           <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card mb-lg">
@@ -118,33 +192,32 @@ return (
             <div className="space-y-sm">
               <div className="flex justify-between text-body-md">
                 <span className="text-on-surface-variant">Package</span>
-                <span className="font-semibold text-on-surface">Standard</span>
+                <span className="font-semibold text-on-surface">{pkg?.name}</span>
               </div>
               <div className="flex justify-between text-body-md">
                 <span className="text-on-surface-variant">Base Price</span>
-<span>₹1,999</span>
+                <span>{formatCurrency(pkg?.price)}</span>
               </div>
               <div className="flex justify-between text-body-md">
                 <span className="text-on-surface-variant">GST (18%)</span>
-                <span>₹360</span>
+                <span>{formatCurrency(pkg?.price * 0.18)}</span>
               </div>
               <div className="flex justify-between text-body-md text-green-600">
                 <span>Discount</span>
-                <span>-₹360</span>
+                <span>-{formatCurrency(pkg?.price * 0.18)}</span>
               </div>
               <div className="border-t border-surface-container-high pt-sm flex justify-between text-headline-sm font-bold">
                 <span>Total</span>
-                <span className="text-primary">₹1,999</span>
+                <span className="text-primary">{formatCurrency(pkg?.price)}</span>
               </div>
             </div>
           </div>
           <div className="bg-primary/5 border border-primary/20 rounded-xl p-lg">
             <p className="text-label-md text-primary mb-sm">✅ What's Included</p>
             <ul className="text-body-sm text-on-surface-variant space-y-xs">
-              <li>• Unlimited consultations (30 days)</li>
-              <li>• Court representation (3 hearings)</li>
-              <li>• Priority support</li>
-              <li>• Full document review</li>
+              {pkg?.features?.map((f, i) => (
+                <li key={i}>• {f}</li>
+              ))}
             </ul>
           </div>
         </div>
