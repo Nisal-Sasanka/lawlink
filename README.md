@@ -98,6 +98,3 @@ npm run dev
 The frontend application should now be accessible at `http://localhost:5173`.
 
 ---
-
-## 📝 License
-This project is licensed under the MIT License.
