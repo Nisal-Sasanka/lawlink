@@ -77,7 +77,7 @@ const ComplaintDetails = () => {
               ))}
             </div>
             <div>
-              <p className="text-label-sm text-on-surface-variant mb-sm">Description</p>
+              <p className="text-label-sm text-on-surface-variant mb-sm">Complaint Description</p>
               <div className="bg-surface-container-low rounded-xl p-lg">
                 <p className="text-body-md text-on-surface leading-relaxed">{complaint.description}</p>
               </div>
