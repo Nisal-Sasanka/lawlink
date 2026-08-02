@@ -110,7 +110,7 @@ const ComplaintDetails = () => {
                 </div>
               ))}
               {(!complaint.documents || complaint.documents.length === 0) && (
-                <p className="text-body-sm text-on-surface-variant text-center py-md">No documents uploaded.</p>
+                <p className="text-body-sm text-on-surface-variant text-center py-md">No supporting documents have been uploaded.</p>
               )}
             </div>
           </div>
