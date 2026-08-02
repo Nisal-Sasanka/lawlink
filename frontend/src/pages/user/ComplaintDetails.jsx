@@ -64,7 +64,7 @@ const ComplaintDetails = () => {
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-lg mb-lg">
               {[
                 { label: 'Submitted On', value: new Date(complaint.createdAt).toLocaleDateString() },
-                { label: 'Incident Date', value: complaint.incidentDate ? new Date(complaint.incidentDate).toLocaleDateString() : 'N/A' },
+                { label: 'Date of Incident', value: complaint.incidentDate ? new Date(complaint.incidentDate).toLocaleDateString() : 'N/A' },
                 { label: 'Location', value: complaint.location || 'N/A' },
                 { label: 'Opposing Party', value: complaint.opposingParty || 'N/A' },
                 { label: 'Package', value: complaint.package?.name || 'Standard Representation' },
