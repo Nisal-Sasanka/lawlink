@@ -179,7 +179,7 @@ const ComplaintDetails = () => {
 
           {/* Timeline */}
           <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card">
-            <h3 className="text-headline-sm text-on-surface mb-lg">Case Timeline</h3>
+            <h3 className="text-headline-sm text-on-surface mb-lg">Complaint Timeline</h3>
             <div className="space-y-sm">
               {[
                 { event: 'Complaint Filed', date: new Date(complaint.createdAt).toLocaleDateString(), done: true },
