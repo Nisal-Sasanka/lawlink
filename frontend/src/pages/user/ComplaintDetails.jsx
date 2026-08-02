@@ -59,7 +59,7 @@ const ComplaintDetails = () => {
           {/* Case Info */}
           <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card">
             <h2 className="text-headline-sm text-on-surface mb-lg flex items-center gap-sm">
-              <FileText size={18} className="text-primary" /> Case Information
+              <FileText size={18} className="text-primary" /> Complaint Information
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-lg mb-lg">
               {[
