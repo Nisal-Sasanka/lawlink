@@ -121,7 +121,7 @@ const ConsultationResponse = () => {
 
           {/* Case Info */}
           <div className="bg-white border border-surface-container-high rounded-2xl p-lg shadow-card">
-            <h3 className="text-label-md text-on-surface-variant mb-md">Case Details</h3>
+            <h3 className="text-label-md text-on-surface-variant mb-md">Complaint Details</h3>
             <div className="space-y-sm text-body-sm">
               <div className="flex items-center gap-sm text-on-surface-variant">
                 <FileText size={14} className="text-primary" />
