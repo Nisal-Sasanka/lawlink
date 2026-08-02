@@ -101,7 +101,7 @@ const ConsultationResponse = () => {
         <div className="space-y-lg">
           {/* Lawyer Card */}
           <div className="bg-white border border-surface-container-high rounded-2xl p-lg shadow-card">
-            <h3 className="text-label-md text-on-surface-variant mb-md">Your Lawyer</h3>
+            <h3 className="text-label-md text-on-surface-variant mb-md">Assigned Lawyer</h3>
             <div className="flex items-center gap-md mb-lg">
               <div className="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-label-sm font-bold text-on-primary-container">{getInitials(lawyer?.name)}</div>
               <div>
