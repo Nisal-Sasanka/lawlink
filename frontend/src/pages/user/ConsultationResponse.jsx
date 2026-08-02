@@ -206,7 +206,7 @@ const ConsultationResponse = () => {
                 <Send size={16} />
               </button>
             </div>
-            <p className="text-body-sm text-on-surface-variant text-center mt-xs">Messages are end-to-end encrypted.</p>
+            <p className="text-body-sm text-on-surface-variant text-center mt-xs">Your messages are end-to-end encrypted.</p>
           </div>
         </div>
       </div>
