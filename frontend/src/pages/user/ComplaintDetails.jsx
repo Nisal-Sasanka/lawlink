@@ -3,7 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { ArrowLeft, CheckCircle, Clock, AlertTriangle, FileText, User, Calendar, MessageSquare, Paperclip, Download, Upload, Loader2, XCircle } from 'lucide-react';
 import { getComplaintById } from '../../services/complaint.service';
 
-const statusConfig = {
+const complaintStatusConfig = {
   'OPEN': { color: 'bg-blue-100 text-blue-700', label: 'Open' },
   'IN_REVIEW': { color: 'bg-yellow-100 text-yellow-700', label: 'In Review' },
   'RESOLVED': { color: 'bg-green-100 text-green-700', label: 'Resolved' },
@@ -45,7 +45,7 @@ const ComplaintDetails = () => {
         <div className="flex-1">
           <div className="flex items-center gap-sm mb-xs flex-wrap">
             <span className="text-label-sm font-bold text-primary bg-primary/10 px-sm py-xs rounded">{complaint.id.split('-')[0]}</span>
-            <span className={`text-label-sm px-sm py-xs rounded-full font-semibold ${statusConfig[complaint.status]?.color || 'bg-gray-100'}`}>{statusConfig[complaint.status]?.label || complaint.status}</span>
+            <span className={`text-label-sm px-sm py-xs rounded-full font-semibold ${complaintStatusConfig[complaint.status]?.color || 'bg-gray-100'}`}>{complaintStatusConfig[complaint.status]?.label || complaint.status}</span>
             <span className="text-label-sm bg-red-50 text-red-600 px-sm py-xs rounded-full">{complaint.priority} Priority</span>
             <span className="text-label-sm bg-surface-container text-on-surface-variant px-sm py-xs rounded">{complaint.category}</span>
           </div>
