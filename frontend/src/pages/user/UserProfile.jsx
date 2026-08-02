@@ -491,7 +491,7 @@ const UserProfile = () => {
           {tab === 'notif' && (
             <div className="bg-white border border-surface-container-high rounded-2xl p-xl shadow-card">
               <h3 className="text-headline-sm text-on-surface flex items-center gap-sm mb-xl">
-                <Bell size={20} className="text-primary" /> Notification Preferences
+                <Bell size={20} className="text-primary" /> Notification preferences
               </h3>
 
               <div className="space-y-lg">
