@@ -229,7 +229,7 @@ const UserProfile = () => {
       {/* ── Header ── */}
       <div className="mb-xl">
         <h1 className="text-headline-lg text-on-surface">My Profile</h1>
-        <p className="text-body-md text-on-surface-variant mt-xs">Manage your personal info, security and notification preferences.</p>
+        <p className="text-body-md text-on-surface-variant mt-xs">Manage your personal informations, security and notification preferences.</p>
       </div>
 
       {/* ── Save toast ── */}
