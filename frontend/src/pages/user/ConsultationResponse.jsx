@@ -38,7 +38,8 @@ const ConsultationResponse = () => {
       const res = await getMessages(lawyerId);
       if (res.success) setChat(res.data);
     } catch (err) {
-      console.error('Failed to fetch messages', err);
+      console.error('Failed to fetch consultation  messages', err);
+      
     }
   };
 
