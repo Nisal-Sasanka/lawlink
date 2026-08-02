@@ -117,7 +117,7 @@ const ComplaintDetails = () => {
 
           {/* Actions */}
           <div className="bg-white border border-surface-container-high rounded-xl p-xl shadow-card">
-            <h2 className="text-headline-sm text-on-surface mb-lg">Quick Actions</h2>
+            <h2 className="text-headline-sm text-on-surface mb-lg">Available Actions</h2>
             <div className="flex gap-md flex-wrap">
               {complaint.assignedTo && (
                 <Link to={`/user/consultation?lawyerId=${complaint.assignedTo.id}`} className="no-underline">
