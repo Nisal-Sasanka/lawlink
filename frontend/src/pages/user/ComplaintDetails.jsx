@@ -66,7 +66,7 @@ const ComplaintDetails = () => {
                 { label: 'Submitted On', value: new Date(complaint.createdAt).toLocaleDateString() },
                 { label: 'Date of Incident', value: complaint.incidentDate ? new Date(complaint.incidentDate).toLocaleDateString() : 'N/A' },
                 { label: 'Location', value: complaint.location || 'N/A' },
-                { label: 'Opposing Party', value: complaint.opposingParty || 'N/A' },
+                { label: 'Opposing Person', value: complaint.opposingParty || 'N/A' },
                 { label: 'Package', value: complaint.package?.name || 'Standard Representation' },
                 { label: 'Case ID', value: complaint.id.split('-')[0] },
               ].map((item, i) => (
