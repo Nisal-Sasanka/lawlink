@@ -24,7 +24,7 @@ const ComplaintDetails = () => {
           setComplaint(response.data);
         }
       } catch (err) {
-        console.error(err);
+       console.error('Failed to fetch complaint:', err);
       } finally {
         setLoading(false);
       }
