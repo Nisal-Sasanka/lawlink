@@ -32,7 +32,7 @@ const ComplaintDetails = () => {
     fetchComplaint();
   }, [id]);
 
-  if (loading) return <div className="flex justify-center p-xl"><Loader2 className="animate-spin text-primary" size={32} /></div>;
+  if (loading) return <div className="flex justify-center p-xl" aria-label="Loading complaint"><Loader2 className="animate-spin text-primary" size={32} /></div>;
   if (!complaint) return <div className="flex justify-center p-xl text-on-surface-variant">Complaint not found</div>;
 
   return (
