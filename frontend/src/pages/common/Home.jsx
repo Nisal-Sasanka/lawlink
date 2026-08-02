@@ -10,7 +10,7 @@ const features = [
 ];
 
 const lawyers = [
-  { name: 'Adv.Pravitharan', spec: 'Civil Law', rating: 4.8, cases: 48, city: 'Colombo', avatar: 'PP' },
+  { name: 'Adv.Pravithar', spec: 'Civil Law', rating: 4.8, cases: 48, city: 'Colombo', avatar: 'PP' },
   { name: 'Adv. Nishal', spec: 'Family Law', rating: 4.9, cases: 67, city: 'Kandy', avatar: 'AN' },
   { name: 'Adv. Thirushi', spec: 'Criminal Law', rating: 4.5, cases: 31, city: 'Galle', avatar: 'AT' },
 ];
