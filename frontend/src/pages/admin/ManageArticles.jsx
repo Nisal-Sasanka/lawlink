@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { PlusCircle, Edit2, Trash2, Search, Clock, CheckCircle, XCircle, FileText, X, Save, Loader2 } from 'lucide-react';
 import { getAllArticlesAdmin, createArticle, updateArticle, deleteArticle } from '../../services/article.service';
 
-
 const statusConfig = {
   PUBLISHED: { color: 'bg-green-100 text-green-700', icon: CheckCircle },
   DRAFT: { color: 'bg-gray-100 text-gray-600', icon: Clock },
