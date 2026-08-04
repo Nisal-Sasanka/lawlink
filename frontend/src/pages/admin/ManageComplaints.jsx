@@ -11,7 +11,6 @@ import { getLawyers } from '../../services/user.service';
 
 
 
-
 /* ─── Config ─────────────────────────────────────────────────── */
 const STATUS_CFG = {
   'Open':      { pill: 'bg-blue-100 text-blue-700',    icon: Clock,          dot: 'bg-blue-500'   },
