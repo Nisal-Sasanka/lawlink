@@ -7,7 +7,6 @@ import {
 import { getAdminStats } from '../../services/admin.service';
 import { useNavigate } from 'react-router-dom';
 
-
 /* ─── Toggle ─────────────────────────────────────────────────── */
 function Toggle({ checked, onChange, id }) {
   return (
