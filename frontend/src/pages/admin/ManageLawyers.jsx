@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { getUsers, toggleUserStatus, verifyLawyer } from '../../services/user.service';
 
+
 /* ── Status helpers ────────────────────────────────────────── */
 const getUIStatus = (l) => {
   if (l.status === 'SUSPENDED') return 'SUSPENDED';
