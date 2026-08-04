@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Search, Eye, UserX, UserCheck, Filter, Phone, Mail, Calendar, ShieldAlert, CheckCircle, AlertTriangle, ArrowRight, X, Loader2 } from 'lucide-react';
 import { getUsers, toggleUserStatus } from '../../services/user.service';
 
-
 const statusConfig = {
   ACTIVE: { color: 'bg-green-100 text-green-700', icon: CheckCircle, label: 'Active' },
   INACTIVE: { color: 'bg-gray-100 text-gray-600', icon: Calendar, label: 'Inactive' },
