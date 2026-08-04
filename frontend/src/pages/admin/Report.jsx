@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { TrendingUp, Users, Scale, FileText, DollarSign, CheckCircle, BarChart3, Download, Loader2 } from 'lucide-react';
 import { getReportData } from '../../services/admin.service';
 
-
 const CATEGORY_COLORS = [
   'bg-blue-500', 'bg-purple-500', 'bg-red-500', 'bg-yellow-500',
   'bg-green-500', 'bg-pink-500', 'bg-indigo-500', 'bg-orange-500', 'bg-gray-400',
