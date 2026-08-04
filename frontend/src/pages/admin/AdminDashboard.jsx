@@ -5,7 +5,6 @@ import { getAdminStats } from '../../services/admin.service';
 import { getNotifications, markNotificationRead } from '../../services/notification.service';
 import { AuthContext } from '../../App';
 
-
 const AdminDashboard = () => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
