@@ -3,6 +3,7 @@ import { prisma } from '../prisma';
 import { NotFoundError, ForbiddenError, BadRequestError } from '../utils/errors';
 import { AuthRequest } from '../middleware/authMiddleware';
 
+
 export const getPackages = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const packages = await prisma.package.findMany({
