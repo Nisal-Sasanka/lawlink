@@ -3,7 +3,6 @@ import { prisma } from '../prisma';
 import { NotFoundError } from '../utils/errors';
 import { AuthRequest } from '../middleware/authMiddleware';
 
-
 export const getArticles = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const articles = await prisma.article.findMany({
