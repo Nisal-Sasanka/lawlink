@@ -2,7 +2,6 @@ import { Response, NextFunction } from 'express';
 import { prisma } from '../prisma';
 import { AuthRequest } from '../middleware/authMiddleware';
 
-
 export const getAdminStats = async (req: AuthRequest, res: Response, next: NextFunction) => {
   try {
     const [
