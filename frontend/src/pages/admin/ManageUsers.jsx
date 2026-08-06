@@ -35,6 +35,7 @@ const ManageUsers = () => {
     fetchAllUsers();
   }, []);
 
+  
   const filtered = users.filter(u =>
     (filter === 'All' || u.status === filter.toUpperCase()) &&
     (u.name.toLowerCase().includes(search.toLowerCase()) ||
