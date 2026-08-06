@@ -87,6 +87,7 @@ const AdminProfile = () => {
 
   const handlePwdChange = (e) => {
     e.preventDefault();
+    
     if (!pwd.current || !pwd.newPwd) return setPwdMsg({ type: 'error', text: 'Please fill all fields.' });
     if (pwd.newPwd.length < 8) return setPwdMsg({ type: 'error', text: 'Password must be at least 8 characters.' });
     if (pwd.newPwd !== pwd.confirm) return setPwdMsg({ type: 'error', text: 'Passwords do not match.' });
