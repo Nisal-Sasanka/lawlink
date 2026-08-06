@@ -79,6 +79,7 @@ const AdminDashboard = () => {
       </div>
 
       {/* Primary Stats Grid */}
+      
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-md mb-xl">
         {/* Registered Clients */}
         <div className="bg-white border border-surface-container-high rounded-xl p-lg shadow-card hover:shadow-md transition-shadow">
