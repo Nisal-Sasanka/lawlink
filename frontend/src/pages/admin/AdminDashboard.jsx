@@ -43,6 +43,7 @@ const AdminDashboard = () => {
   // Build a combined recent activity feed from real data, keeping complaint IDs for navigation
   const recentActivity = [
     ...(stats?.recentComplaints || []).map(c => ({
+     
       id: c.id,
       type: 'complaint',
       user: c.client?.name || 'Unknown',
