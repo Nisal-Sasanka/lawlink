@@ -14,6 +14,7 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     const fetchStats = async () => {
+      
       try {
         const [statsRes, notifRes] = await Promise.all([
           getAdminStats(),
