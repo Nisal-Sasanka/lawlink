@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 import { useNotifications } from '../../contexts/NotificationContext';
 
-/* ── icon & colour helpers (kept outside state) ────────────── */
+/* ── icon & colour helpers*/
 const typeIcon = (type) => {
   switch (type) {
     case 'lawyer':  return <User          size={18} className="text-primary" />;
@@ -36,6 +36,7 @@ const typeLabel = {
 
 /* ── component ──────────────────────────────────────────────── */
 const Notification = () => {
+ 
   const navigate = useNavigate();
   const { notifications, unreadCount, markRead, markAllRead, dismiss } = useNotifications();
   const [filter, setFilter] = useState('All');
