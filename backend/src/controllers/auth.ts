@@ -39,6 +39,7 @@ export const register = async (req: Request, res: Response, next: NextFunction) 
 
     const { accessToken, refreshToken } = generateTokens(user.id, user.role);
 
+    
     res.cookie('refreshToken', refreshToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
