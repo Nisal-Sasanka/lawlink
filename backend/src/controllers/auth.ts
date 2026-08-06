@@ -106,7 +106,8 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
         accessToken,
       },
     });
-  } catch (error) {
+  } 
+  catch (error) {
     console.log(error)
     next(error);
   }
