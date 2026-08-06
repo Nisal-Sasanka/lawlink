@@ -31,6 +31,7 @@ const ComplaintReview = () => {
       try {
         const response = await getComplaintById(id);
         if (response.success) {
+          
           setCaseData(response.data);
           setOutcome(response.data.resolutionOutcome || '');
           setResolution(response.data.resolutionSummary || '');
