@@ -87,6 +87,7 @@ const Home = () => {
           </div>
         </div>
         {/* Decorative stats */}
+        
         <div className="max-w-7xl mx-auto mt-3xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-lg">
             {[
