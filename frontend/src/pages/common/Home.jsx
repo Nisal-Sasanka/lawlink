@@ -56,6 +56,7 @@ const Home = () => {
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary-container to-[#1a2f7a] text-on-primary py-3xl px-lg">
+       
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_#90a8ff_0%,_transparent_60%)]" />
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="max-w-3xl">
